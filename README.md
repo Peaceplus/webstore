@@ -1,6 +1,5 @@
 # webstore
 
-## test
 
 ## Project setup
 ```
