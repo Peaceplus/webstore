@@ -68,7 +68,9 @@
 </template>
 <script>
 import "@/assets/css/home.css";
-export default {};
+export default {
+  name:"Footer",
+};
 </script>
 
 <style></style>
