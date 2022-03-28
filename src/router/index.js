@@ -38,28 +38,39 @@ export default new VueRouter({
   //配置路由
   routes: [
     {
+      name: "home",
       path: "/home",
       component: Home,
-      meta: { show: true },
+      meta: {
+        show_header: true,
+        show_footer: true
+      },
     },
     {
       name: "search",
       path: "/search/:keyword?",
       component: Search,
-      meta: { show: true },
+      meta: {
+        show_header: true,
+        show_footer: true
+      },
     },
     {
+      name: "login",
       path: '/login',
       component: Login,
       meta: {
-        show: false,
+        show_header: true,
+        show_footer: false
       }
     },
     {
+      name: "register",
       path: '/register',
       component: Register,
       meta: {
-        show: false,
+        show_header: true,
+        show_footer: false
       }
     },
     //重定向，项目运行时，访问/，定向至首页

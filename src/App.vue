@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Header></Header>
+    <Header v-show="$route.meta.show_header"></Header>
     <!-- 路由组件出口 -->
     <router-view></router-view>
     <!-- 在Home、Search显示，在登录、注册隐藏 -->
-    <Footer v-show="$route.meta.show"></Footer>
+    <Footer v-show="$route.meta.show_footer"></Footer>
   </div>
 </template>
 

@@ -2,6 +2,8 @@
     background-color: white;
     height: 30px;
     line-height: 30px;
+    margin: 0;
+    padding: 0;
 }
 .header > .top .container{
     width: 1200px;
@@ -14,6 +16,10 @@
 .header > .top .container .loginList p{
     float: left;
     margin-right: 10px;
+    padding: 0 10px;
+    font: 12px/1.3 "Microsoft YaHei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+    color: #333;
+    line-height: 3em;
 }
 .header > .top .container .loginList p .register{
     border-left: 1px solid gray;
@@ -25,6 +31,9 @@
 }
 .header > .top .container .typeList a{
     padding: 0 10px;
+    font: 12px/1.3 "Microsoft YaHei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+    color: #333;
+    line-height: 3em;
 }
 .header > .top .container .typeList a + a{
     border-left: 1px solid gray;
@@ -38,9 +47,10 @@
     float:left;
 }
 .header > .bottom .logoArea .logoImg img{
-    width: 50px;
-    height: 50px;
-    margin: 25px 45px;
+    zoom: 0.5;
+    width: 150px;
+    height: 150px;
+    background: transparent url(../images/logo.png) no-repeat scroll;
 }
 .header > .bottom .searchArea{
     float:right;
@@ -53,6 +63,7 @@
     box-sizing: border-box;
     width: 490px;
     height: 32px;
+    line-height: 32px;
     padding: 0px 4px;
     border-radius: 5px;
     border: 1px solid grey;
@@ -63,6 +74,7 @@
 }
 .header > .bottom .searchArea .searchForm button{
     height: 32px;
+    line-height: 32px;
     width: 68px;
     border-radius: 5px;
     background-color: orangered;
@@ -74,8 +86,99 @@
 .header > .bottom .searchArea .searchForm button:focus{
     outline: none;
 }
+
+/* 注册页头部 */
+.header > .regContainer{
+    width: 1200px;
+    height: 445px;
+    border: 1px solid #666;
+    margin: 0 auto;
+}
+/* 注册表头 */
+.header > .regContainer h3{
+    background: #ccc;
+    margin: 0;
+    padding: 6px 15px;
+    color: black;
+    border-bottom: 1px solid #666;
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+    opacity: .8;
+}
+.header > .regContainer h3 .goLogin{
+    font-size: 14px;
+    float: right;
+}
+.header > .regContainer h3 .goLogin a{
+    color: red;
+}
+/* 用户名 */
+.header > .regContainer .regContent{
+    padding-left: 390px;
+    margin-bottom: 18px;
+    position: relative;
+    font: 12px/1.3 "Microsoft YaHei",Tahoma,Helvetica,Arial, "\5b8b\4f53", sans-serif;
+    color: black;
+}
+.header > .regContainer .regContent label{
+    font-size: 14px;
+    width: 96px;
+    text-align: right;
+    display: inline-block;
+}
+.header > .regContainer .regContent input{
+    width: 270px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    outline: none;
+    border: 1px solid #666;
+}
+.header > .regContainer .regContent .errorMsg{
+    position: absolute;
+    top: 100%;
+    left: 490px;
+    color: red;
+}
+/* 勾选信息 */
+.header > .regContainer .regCheck{
+    text-align: center;
+    position: relative;
+    font: 12px/1.3 "Microsoft YaHei",Tahoma,Helvetica,Arial, "\5b8b\4f53", sans-serif;
+    color: #333;
+}
+.header > .regContainer .regCheck input{
+    vertical-align: middle;
+}
+.header > .regContainer .regCheck .errorMsg{
+    position: absolute;
+    top: 100%;
+    left: 500px;
+    color: red;
+}
+/* 注册按钮 */
+.header > .regContainer .btn{
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    margin: 17px 0 0 55px;
+}
+.header > .regContainer .btn button{
+    outline: none;
+    width: 270px;
+    height: 36px;
+    background: linear-gradient(90deg,#f90,#ff5000);
+    color: #fff !important;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* 分类 */
 .type-nav{
-    border-bottom: 2px solid orangered;
+    border-bottom: 2px solid rgb(255, 123, 0);
 }
 .type-nav .container{
     width: 1200px;
@@ -98,6 +201,7 @@
     display: block;
     width:230px;
     height: 40px;
+    line-height: 40px;
     background-color: #666;
     font-size: 14px;
     text-decoration: none;
@@ -118,6 +222,8 @@
   position: relative;
   height: auto;
   min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 .footer .footer-container {
   width: 1200px;
@@ -130,6 +236,8 @@
   border-top: 1px solid #e4e1e1;
   overflow: hidden;
   padding-left: 40px;
+  font: 12px/1.3 "Microsoft YaHei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+  color: #333;
 }
 .footer .footer-container .footerList .footerItem {
   width: 16.6666667%;
@@ -177,63 +285,7 @@ th, td {
     padding: 0;
 }
 
-/* 设置默认字体 */
-body,
-button, input, select, textarea { /* for ie */
-    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
-    font: 12px/1.3 "Microsoft YaHei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
-    color: #333;
-}
-
-
-h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
-h2 { font-size: 16px; }
-h3 { font-size: 14px; }
-h4, h5, h6 { font-size: 100%; }
-
-address, cite, dfn, em, var, i{ font-style: normal; } /* 将斜体扶正 */
-b, strong{ font-weight: normal; } /* 将粗体扶细 */
-code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
-small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
-
-/* 重置列表元素 */
-ul, ol { list-style: none; }
 
 /* 重置文本格式元素 */
 a { text-decoration: none; color: #666;}
 
-
-/* 重置表单元素 */
-fieldset, img { border: none; }
-button, input, select, textarea {
-    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
-}
-
-/* 重置表格元素 */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* 重置 hr */
-hr {
-    border: none;
-    height: 1px;
-}
-.clearFix::after{
-	content:"";
-	display: block;
-	clear:both;
-}
-/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
-html { overflow-y: scroll; }
-
-
-/* 清除浮动 */
-.clearfix::after {
-    display: block;
-    height: 0;
-    content: "";
-    clear: both;
-    visibility: hidden;
-}

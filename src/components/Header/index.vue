@@ -27,11 +27,11 @@
     </div>
     <!-- 头部的第二行 搜索区域 -->
     <div class="bottom">
-      <h1 class="logoArea">
+      <div class="logoArea">
         <router-link class="logoImg" to="/home">
-          <img src="../../assets/images/logo.png" alt />
+          <img>
         </router-link>
-      </h1>
+      </div>
 
       <div class="search-container">
         <div class="searchArea">
