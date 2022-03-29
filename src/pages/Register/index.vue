@@ -21,7 +21,7 @@
         <label>验证码</label>
         <input type="text" autocomplete="off" placeholder="请输入验证码" />
         <!-- 生成验证码 -->
-
+        <img src="../../assets/images/canvas.png" />
         <span class="errorMsg">验证码错误</span>
       </div>
 
@@ -50,7 +50,7 @@
         <input type="checkbox" />
         <span>同意协议并注册</span>
         <router-link to="">《用户注册协议》</router-link>
-        <span class="errorMsg">未确认通过用户协议</span>
+        <span class="errorMsg">未确认同意用户协议</span>
       </div>
       <div class="btn">
         <button>确认注册</button>
