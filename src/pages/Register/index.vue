@@ -53,7 +53,7 @@
         <span class="errorMsg">未确认同意用户协议</span>
       </div>
       <div class="btn">
-        <button>确认注册</button>
+        <el-button type="primary">确认注册</el-button>
       </div>
     </div>
   </div>

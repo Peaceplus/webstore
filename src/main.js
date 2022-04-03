@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 //三级联动组件--全局组件
 import TypeNav from '@/pages/Home/TypeNav';
 //参数：全局组件的名字，组件名
-Vue.component(TypeNav.name, TypeNav)
+Vue.component(TypeNav.name, TypeNav);
 //引入路由
 import router from '@/router';
 
 Vue.config.productionTip = false
+Vue.use(ElementUI);
 
 new Vue({
   render: h => h(App),

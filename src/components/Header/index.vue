@@ -9,7 +9,7 @@
           <p>
             <span>请</span>
             <!-- 声明式导航：务必要有to属性 -->
-            <router-link to="/login">登录</router-link>
+            <router-link class="login" to="/login">登录</router-link>
             <router-link class="register" to="/register">立即注册</router-link>
           </p>
         </div>
