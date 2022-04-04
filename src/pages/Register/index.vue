@@ -65,7 +65,7 @@
             id="agreementCheck"
           >
           </el-checkbox>
-          <el-button type="text" @click="dialogVisible = true">《用户协议》</el-button>
+          <el-button type="text" @click="dialog">《用户协议》</el-button>
           <el-dialog
             title="《用户协议》"
             :visible.sync="dialogVisible"
@@ -74,7 +74,7 @@
           >
             <span>本网站仅用于学习交流使用！</span>
             <span slot="footer" calss="dialog-footer">
-              <el-button type="primary" @click="dialogVisible = false">同意</el-button>
+              <el-button type="primary" @click="agreement">同意</el-button>
             </span>
           </el-dialog>
         </el-form-item>
@@ -173,6 +173,13 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+    dialog(){
+      this.dialogVisible = true;
+    },
+    agreement(){
+      this.dialogVisible = false;
+      this.regForm.agreement = true;
     },
   },
 };
