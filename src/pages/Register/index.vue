@@ -57,12 +57,11 @@
             placeholder="请再一次输入密码"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="agreement">
+        <el-form-item prop="type">
           <el-checkbox
             label="同意协议"
-            v-model="regForm.agreement"
+            v-model="regForm.type"
             name="type"
-            id="agreementCheck"
           >
           </el-checkbox>
           <el-button type="text" @click="dialog">《用户协议》</el-button>
@@ -133,7 +132,6 @@ export default {
         callback(new Error("两次输入密码不一致"));
       }
     };
-    var validateAgreement = (rule, value, callback) => {};
 
     return {
       dialogVisible: false,
@@ -142,14 +140,14 @@ export default {
         canvas: "",
         pwd: "",
         checkPwd: "",
-        agreement: "",
+        type: "",
       },
       rules: {
         userName: [{ validator: validateUsername, trigger: "blur" }],
         canvas: [{ validator: validateCanvas, trigger: "blur" }],
         pwd: [{ validator: validatePwd, trigger: "blur" }],
         checkPwd: [{ validator: validatePwd2, trigger: "blur" }],
-        agreement: [{ validator: validateAgreement, trigger: "blur" }],
+        type: [{ type: 'array', required:true, message:'请勾选并同意用户协议',trigger:'change' }],
       },
     };
   },
