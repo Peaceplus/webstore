@@ -7,7 +7,9 @@
         新用户注册
         <span class="goLogin">
           已有帐号，去
-          <router-link to="/login"><a>登录</a></router-link>
+          <router-link to="/login">
+            <a>登录</a>
+          </router-link>
         </span>
       </h3>
       <!-- 用户名 -->
@@ -20,34 +22,14 @@
         class="regForm"
       >
         <el-form-item label="用户名" prop="userName">
-          <el-input
-            type="text"
-            v-model="regForm.userName"
-            auto-complete="off"
-            placeholder="请输入用户名"
-          ></el-input>
+          <el-input type="text" v-model="regForm.userName" auto-complete="off" placeholder="请输入用户名"></el-input>
         </el-form-item>
-        <!-- <el-form-item label="邮箱" prop="mail">
-          <el-input type="text" v-model="regForm.mail" auto-complete="off" placeholder="请输入邮箱"></el-input>
-        </el-form-item> -->
         <el-form-item label="验证码" prop="canvas">
-          <el-input
-            type="text"
-            v-model="regForm.canvas"
-            auto-complete="off"
-            placeholder="请输入验证码"
-          >
-          </el-input>
-          <el-image src="../../assets/images/canvas.png"></el-image>
-          <!-- <el-button round>发送验证码</el-button> -->
+          <el-input type="text" v-model="regForm.canvas" auto-complete="off" placeholder="请输入验证码"></el-input>
+          <input type="button" @click="createCode" class="verification" v-model="checkCode"/>
         </el-form-item>
         <el-form-item label="密码" prop="pwd">
-          <el-input
-            type="password"
-            v-model="regForm.pwd"
-            auto-complete="off"
-            placeholder="请输入密码"
-          ></el-input>
+          <el-input type="password" v-model="regForm.pwd" auto-complete="off" placeholder="请输入密码"></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPwd">
           <el-input
@@ -58,12 +40,7 @@
           ></el-input>
         </el-form-item>
         <el-form-item prop="type">
-          <el-checkbox
-            label="同意协议"
-            v-model="regForm.type"
-            name="type"
-          >
-          </el-checkbox>
+          <el-checkbox label="同意协议" v-model="regForm.type" name="type"></el-checkbox>
           <el-button type="text" @click="dialog">《用户协议》</el-button>
           <el-dialog
             title="《用户协议》"
@@ -99,11 +76,10 @@ export default {
       }
     };
     // 验证码验证
-    let canvas = "uwv6";
     var validateCanvas = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入验证码"));
-      } else if (value != canvas) {
+      } else if (value != this.checkCode) {
         callback(new Error("请输入正确的验证码"));
       }
     };
@@ -138,6 +114,8 @@ export default {
       regForm: {
         userName: "",
         canvas: "",
+        code: "",
+        checkCode: "",
         pwd: "",
         checkPwd: "",
         type: "",
@@ -147,17 +125,110 @@ export default {
         canvas: [{ validator: validateCanvas, trigger: "blur" }],
         pwd: [{ validator: validatePwd, trigger: "blur" }],
         checkPwd: [{ validator: validatePwd2, trigger: "blur" }],
-        type: [{ type: 'array', required:true, message:'请勾选并同意用户协议',trigger:'change' }],
+        type: [
+          {
+            type: "array",
+            required: true,
+            message: "请勾选并同意用户协议",
+            trigger: "change",
+          },
+        ],
       },
     };
   },
+  created() {
+    this.createCode();
+  },
   methods: {
+    // 图形验证码
+    createCode() {
+      // 初始化
+      this.code = "";
+      this.checkCode = "";
+      this.canvas = "";
+      // 验证码长度
+      const codeLength = 4;
+      // 随机生成
+      const random = new Array(
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        "A",
+        "a",
+        "B",
+        "b",
+        "C",
+        "c",
+        "D",
+        "d",
+        "E",
+        "e",
+        "F",
+        "f",
+        "G",
+        "g",
+        "H",
+        "h",
+        "I",
+        "i",
+        "J",
+        "j",
+        "K",
+        "k",
+        "L",
+        "l",
+        "M",
+        "m",
+        "N",
+        "n",
+        "O",
+        "o",
+        "P",
+        "p",
+        "Q",
+        "q",
+        "R",
+        "r",
+        "S",
+        "s",
+        "T",
+        "t",
+        "U",
+        "u",
+        "V",
+        "v",
+        "W",
+        "w",
+        "X",
+        "x",
+        "Y",
+        "y",
+        "Z",
+        "z"
+      );
+      for (let i = 0; i < codeLength; i++) {
+        // 取得随机数索引(0~35)
+        let index = Math.floor(Math.random() * 36);
+        // 根据索引取得随机数,加到code中
+        this.code += random[index];
+      }
+      // 将code值赋给验证码
+      this.checkCode = this.code;
+    },
+
     handleClose(done) {
       this.$confirm("确认关闭？")
         .then((_) => {
           done();
         })
-        .catch((_) => {});
+        .catch((_) => { });
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
@@ -172,10 +243,10 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    dialog(){
+    dialog() {
       this.dialogVisible = true;
     },
-    agreement(){
+    agreement() {
       this.dialogVisible = false;
       this.regForm.agreement = true;
     },

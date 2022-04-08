@@ -131,18 +131,18 @@
 .type-nav{
     border-bottom: 2px solid rgb(255, 123, 0);
 }
-.type-nav .container{
+.type-nav > .container{
     width: 1200px;
     margin: 0 auto;
     display: flex;
     position: relative;
 }
 
-.type-nav .container .classify{
+.type-nav > .container .classify{
     position: relative;
     display: inline-block;
 }
-.type-nav .container .classify button{
+.type-nav > .container .classify button{
     display: inline-block;
     width: 200px;
     line-height: 1;
@@ -162,15 +162,15 @@
     font-size: 14px;
 }
 
-.type-nav .container .classify button:hover{
+.type-nav > .container .classify button:hover{
     background-color: #ff6700;
 }
 /* 竖列表分类 */
-.type-nav .container .classify .content{
+.type-nav > .container .classify .content{
     height: 0 auto;
 }
 
-.type-nav .container .classify .content a{
+.type-nav > .container .classify .content a{
     display: block;
     width: 200px;
     height: 40px;
@@ -183,10 +183,10 @@
     color: #fff;
 }
 /* 鼠标经过链接变换背景颜色 */
-.type-nav .container .content a:hover{
+.type-nav > .container .content a:hover{
   background-color: #ff6700;
 }
-.type-nav .container .classify:hover .content{
+.type-nav > .container .classify:hover .content{
     display: block;
 }
 
@@ -194,6 +194,18 @@
     text-align: center;
 }
 
+/* 验证码 */
+.verification{
+    width: 100px;
+    letter-spacing: 5px;
+    margin-left: 50px;
+    height: 40px;
+    transform: translate(-15px,0);
+}
+.captcha{
+    height: 50px;
+    text-align: justify;
+}
 
 .footer {
   background-color: #eaeaea;
