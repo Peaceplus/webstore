@@ -77,7 +77,7 @@ export default {
     };
     // 验证码验证
     var validateCanvas = (rule, value, callback) => {
-      valuse = value.toUpperCase();
+      value = value.toUpperCase();
       if (value === "") {
         callback(new Error("请输入验证码"));
       } else if (value != this.checkCode) {
