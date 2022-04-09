@@ -250,7 +250,7 @@ export default {
     },
     agreement() {
       this.dialogVisible = false;
-      this.regForm.agreement = true;
+      this.regForm.type = true;
     },
   },
 };
