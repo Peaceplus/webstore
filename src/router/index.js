@@ -8,6 +8,7 @@ import Home from '@/pages/Home';
 import Search from '@/pages/Search';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
+import Info from '@/pages/Info';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
@@ -62,7 +63,7 @@ export default new VueRouter({
       meta: {
         show_header: true,
         show_footer: false
-      }
+      },
     },
     {
       name: "register",
@@ -71,7 +72,16 @@ export default new VueRouter({
       meta: {
         show_header: true,
         show_footer: false
-      }
+      },
+    },
+    {
+      name: "info",
+      path: '/info',
+      component: Info,
+      meta: {
+        show_header: true,
+        show_footer: false
+      },
     },
     //重定向，项目运行时，访问/，定向至首页
     {

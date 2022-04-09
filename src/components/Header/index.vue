@@ -19,7 +19,7 @@
           <a href="###">我的购物车</a>
           <a href="###">已购买的商品</a>
           <a href="###">收藏夹</a>
-          <a href="###">个人中心</a>
+          <router-link class="info" to="/info">个人中心</router-link>
           <a href="###">卖家中心</a>
           <a href="###">联系客服</a>
         </div>
