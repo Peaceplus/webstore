@@ -3,15 +3,7 @@
   <div class="header">
     <div class="regContainer">
       <!-- 注册表头 -->
-      <h3>
-        新用户注册
-        <span class="goLogin">
-          已有帐号，去
-          <router-link to="/login">
-            <a>登录</a>
-          </router-link>
-        </span>
-      </h3>
+      <h3>新用户注册</h3>
       <!-- 用户名 -->
       <el-form
         :model="regForm"
@@ -22,14 +14,34 @@
         class="regForm"
       >
         <el-form-item label="用户名" prop="userName">
-          <el-input type="text" v-model="regForm.userName" auto-complete="off" placeholder="请输入用户名"></el-input>
+          <el-input
+            type="text"
+            v-model="regForm.userName"
+            auto-complete="off"
+            placeholder="请输入用户名"
+          ></el-input>
         </el-form-item>
         <el-form-item label="验证码" prop="canvas">
-          <el-input type="text" v-model="regForm.canvas" auto-complete="off" placeholder="请输入验证码"></el-input>
-          <input type="button" @click="createCode" class="verification" v-model="checkCode"/>
+          <el-input
+            type="text"
+            v-model="regForm.canvas"
+            auto-complete="off"
+            placeholder="请输入验证码"
+          ></el-input>
+          <input
+            type="button"
+            @click="createCode"
+            class="verification"
+            v-model="checkCode"
+          />
         </el-form-item>
         <el-form-item label="密码" prop="pwd">
-          <el-input type="password" v-model="regForm.pwd" auto-complete="off" placeholder="请输入密码"></el-input>
+          <el-input
+            type="password"
+            v-model="regForm.pwd"
+            auto-complete="off"
+            placeholder="请输入密码"
+          ></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPwd">
           <el-input
@@ -57,6 +69,9 @@
         <el-form-item>
           <el-button class="btn" @click="submitForm('regForm')">注册</el-button>
           <el-button @click="resetForm('regForm')">重置</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-link class="goLogin" @click="goLogin">已有帐号？立即登录</el-link>
         </el-form-item>
       </el-form>
     </div>
@@ -141,6 +156,11 @@ export default {
     this.createCode();
   },
   methods: {
+    goLogin() {
+      this.$router.push({
+        path: "/login",
+      });
+    },
     // 图形验证码
     createCode() {
       // 初始化
@@ -230,7 +250,7 @@ export default {
         .then((_) => {
           done();
         })
-        .catch((_) => { });
+        .catch((_) => {});
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
