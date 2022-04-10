@@ -1,6 +1,13 @@
 @
 <template>
   <div class="header">
+    <div class="bottom">
+      <div class="logoArea">
+        <router-link class="logoImg" to="/home">
+          <img src="../../assets/images/logo.png" alt="logo" />
+        </router-link>
+      </div>
+    </div>
     <div class="regContainer">
       <!-- 注册表头 -->
       <h3>新用户注册</h3>
@@ -88,6 +95,8 @@ export default {
         callback(new Error("请输入用户名"));
       } else if (!usernamePattern.test(value)) {
         callback(new Error("用户名应为4-16位由字母、数字、下划线或减号组成的字符"));
+      } else{
+        callback()
       }
     };
     // 验证码验证
@@ -97,6 +106,8 @@ export default {
         callback(new Error("请输入验证码"));
       } else if (value != this.checkCode) {
         callback(new Error("请输入正确的验证码"));
+      } else{
+        callback()
       }
     };
     // 密码验证
@@ -122,6 +133,8 @@ export default {
         callback(new Error("请再次输入密码"));
       } else if (value !== this.regForm.pwd) {
         callback(new Error("两次输入密码不一致"));
+      }else{
+        callback()
       }
     };
 
@@ -137,10 +150,10 @@ export default {
         type: "",
       },
       rules: {
-        userName: [{ validator: validateUsername, trigger: "blur" }],
-        canvas: [{ validator: validateCanvas, trigger: "blur" }],
-        pwd: [{ validator: validatePwd, trigger: "blur" }],
-        checkPwd: [{ validator: validatePwd2, trigger: "blur" }],
+        userName: [{ required: true, validator: validateUsername, trigger: "blur" }],
+        canvas: [{ required: true, validator: validateCanvas, trigger: "blur" }],
+        pwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
+        checkPwd: [{ required: true, validator: validatePwd2, trigger: "blur" }],
         type: [
           {
             type: "array",

@@ -5,7 +5,11 @@
       <router-link class="logoImg" to="/home">
         <img src="../../assets/images/logo.png" alt="logo" />
       </router-link>
-      
+      <div class="loginContainer">
+        <el-form :model="loginForm" status-icon="">
+          <el-form-item label=""></el-form-item>
+        </el-form>
+      </div>
     </div>
   </div>
 </template>
