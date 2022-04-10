@@ -29,7 +29,7 @@
     <div class="bottom">
       <div class="logoArea">
         <router-link class="logoImg" to="/home">
-          <img>
+          <img src="../../assets/images/logo.png" alt="logo">
         </router-link>
       </div>
 

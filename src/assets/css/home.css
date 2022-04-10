@@ -50,9 +50,8 @@
 }
 .header > .bottom .logoArea .logoImg img{
     zoom: 0.5;
-    width: 150px;
-    height: 150px;
-    background: transparent url(../images/logo.png) no-repeat scroll;
+    width: auto;
+    height: auto;
 }
 .header > .bottom .searchArea{
     float:right;
