@@ -116,6 +116,12 @@
     sans-serif;
     color: black;
 }
+.loginForm .el-input{
+    width: 40%;
+}
+.loginForm .el-button{
+    width: 40%;
+}
 /* 注册页头部 */
 .header > .regContainer{
     width: 1200px;

@@ -38,6 +38,7 @@
           <input
             type="button"
             @click="createCode"
+            autocomplete="off"
             class="verification"
             v-model="checkCode"
           />
