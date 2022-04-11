@@ -1,5 +1,10 @@
 <template>
   <div class="bottom">
+    <div class="logoArea">
+      <router-link class="logoImg" to="/home">
+        <img src="../../assets/images/logo.png" alt="logo" />
+      </router-link>
+    </div>
     <div class="search-container">
       <div class="searchArea">
         <form action="###" class="searchForm">
