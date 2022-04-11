@@ -44,6 +44,7 @@ export default new VueRouter({
       component: Home,
       meta: {
         show_header: true,
+        show_logo: true,
         show_search: true,
         show_footer: true
       },
@@ -54,6 +55,7 @@ export default new VueRouter({
       component: Search,
       meta: {
         show_header: true,
+        show_logo: true,
         show_search: true,
         show_footer: true
       },
@@ -64,8 +66,9 @@ export default new VueRouter({
       component: Login,
       meta: {
         show_header: true,
+        show_logo: true,
         show_search: false,
-        show_footer: false
+        show_footer: true
       },
     },
     {
@@ -74,6 +77,7 @@ export default new VueRouter({
       component: Register,
       meta: {
         show_header: true,
+        show_logo: true,
         show_search: false,
         show_footer: false
       },
@@ -84,6 +88,7 @@ export default new VueRouter({
       component: Info,
       meta: {
         show_header: true,
+        show_logo: true,
         show_search: false,
         show_footer: false
       },

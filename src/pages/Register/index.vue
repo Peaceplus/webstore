@@ -1,13 +1,6 @@
 @
 <template>
   <div class="header">
-    <div class="bottom">
-      <div class="logoArea">
-        <router-link class="logoImg" to="/home">
-          <img src="../../assets/images/logo.png" alt="logo" />
-        </router-link>
-      </div>
-    </div>
     <div class="regContainer">
       <!-- 注册表头 -->
       <h3>新用户注册</h3>
@@ -75,7 +68,7 @@
           </el-dialog>
         </el-form-item>
         <el-form-item>
-          <el-button class="btn" @click="submitForm('regForm')">注册</el-button>
+          <el-button @click="submitForm('regForm')">注册</el-button>
           <el-button @click="resetForm('regForm')">重置</el-button>
         </el-form-item>
         <el-form-item>
@@ -96,8 +89,8 @@ export default {
         callback(new Error("请输入用户名"));
       } else if (!usernamePattern.test(value)) {
         callback(new Error("用户名应为4-16位由字母、数字、下划线或减号组成的字符"));
-      } else{
-        callback()
+      } else {
+        callback();
       }
     };
     // 验证码验证
@@ -107,8 +100,8 @@ export default {
         callback(new Error("请输入验证码"));
       } else if (value != this.checkCode) {
         callback(new Error("请输入正确的验证码"));
-      } else{
-        callback()
+      } else {
+        callback();
       }
     };
     // 密码验证
@@ -134,8 +127,8 @@ export default {
         callback(new Error("请再次输入密码"));
       } else if (value !== this.regForm.pwd) {
         callback(new Error("两次输入密码不一致"));
-      }else{
-        callback()
+      } else {
+        callback();
       }
     };
 
