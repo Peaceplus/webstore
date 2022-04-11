@@ -106,7 +106,6 @@
 
 /* 登录 */
 .loginContainer{
-    margin-top: 20px;
     width: 100%;
     height: 500px;
     background-image:url(../images/login/bg1.jpg);
@@ -182,9 +181,6 @@
 }
 
 /* 分类 */
-.type-nav{
-    border-bottom: 2px solid rgb(255, 123, 0);
-}
 .type-nav > .container{
     width: 1200px;
     margin: 0 auto;

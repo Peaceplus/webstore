@@ -44,7 +44,7 @@ export default new VueRouter({
       component: Home,
       meta: {
         show_header: true,
-        show_logo: true,
+        show_logo: false,
         show_search: true,
         show_footer: true
       },
@@ -55,7 +55,7 @@ export default new VueRouter({
       component: Search,
       meta: {
         show_header: true,
-        show_logo: true,
+        show_logo: false,
         show_search: true,
         show_footer: true
       },
