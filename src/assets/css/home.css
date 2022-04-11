@@ -165,6 +165,59 @@
 .type-nav > .container .classify button:hover{
     background-color: #ff6700;
 }
+
+/*轮播图*/
+.type-nav > .container .carouseldiagram{
+    width: 1000px;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+.type-nav > .container .carouseldiagram ul{
+    position: absolute;
+            height: 20px;
+            right: 500px;
+            bottom: 0px;
+            text-align: center;
+            padding: 5px;
+}
+.type-nav > .container .carouseldiagram ul .active{
+    background-color: rgb(119, 102, 102);
+}
+.type-nav > .container .carouseldiagram ul li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin: 2px;
+}
+.type-nav > .container .carouseldiagram .up-page{
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    left: 0px;
+    margin-left: 18px;
+    line-height: 30px;
+    border-radius: 20%;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: #fff;
+}
+.type-nav > .container .carouseldiagram .down-page{
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    right: 0px;
+    margin-right: 18px;
+    line-height: 30px;
+    border-radius: 20%;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: #fff;
+}
+
 /* 竖列表分类 */
 .type-nav > .container .classify .content{
     height: 0 auto;
