@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 顶部容器 */
 .header > .top{
     background-color: white;
     height: 30px;
@@ -10,6 +16,7 @@
     margin: 0 auto;
     overflow: hidden;
 }
+/* 顶部登录|注册 */
 .header > .top .container .loginList{
     float:left;
 }
@@ -21,12 +28,20 @@
 }
 .header > .top .container .loginList p .login{
     text-decoration: none;
+    color: #333;
+}
+.header > .top .container .loginList p .login:hover{
+    color: rgb(238, 45, 45);
 }
 .header > .top .container .loginList p .register{
     border-left: 1px solid gray;
     padding: 0 5px;
     margin-left: 5px;
     text-decoration: none;
+    color: #333;
+}
+.header>.top .container .loginList p .register:hover{
+    color:rgb(238, 45, 45);
 }
 .header > .top .container .typeList{
     float: right;
@@ -40,28 +55,28 @@
 .header > .top .container .typeList a + a{
     border-left: 1px solid gray;
 }
-.header > .bottom{
+.bottom{
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
-.header > .bottom .logoArea{
+.bottom > .logoArea{
     float:left;
 }
-.header > .bottom .logoArea .logoImg img{
+.bottom > .logoArea .logoImg img{
     zoom: 0.5;
-    width: 150px;
-    height: 150px;
-    background: transparent url(../images/logo.png) no-repeat scroll;
+    width: auto;
+    height: auto;
 }
-.header > .bottom .searchArea{
+
+.bottom > .search-container .searchArea{
     float:right;
     margin-top: 35px;
 }
-.header > .bottom .searchArea .searchForm{
+.bottom > .search-container .searchArea .searchForm{
     overflow: hidden;
 }
-.header > .bottom .searchArea .searchForm input{
+.bottom > .search-container .searchArea .searchForm input{
     box-sizing: border-box;
     width: 490px;
     height: 32px;
@@ -71,10 +86,10 @@
     border: 1px solid grey;
     float: left;
 }
-.header > .bottom .searchArea .searchForm input:focus{
+.bottom > .search-container .searchArea .searchForm input:focus{
     outline: none;
 }
-.header > .bottom .searchArea .searchForm button{
+.bottom > .search-container .searchArea .searchForm button{
     height: 32px;
     line-height: 32px;
     width: 68px;
@@ -85,14 +100,52 @@
     float:left;
     cursor:pointer;
 }
-.header > .bottom .searchArea .searchForm button:focus{
+.bottom > .search-container .searchArea .searchForm button:focus{
     outline: none;
 }
 
+/* 登录 */
+.loginContainer{
+    margin-top: 20px;
+    width: 100%;
+    height: 500px;
+    background-image:url(../images/login/bg1.jpg);
+    background-position: 50%;
+}
+.loginForm{
+    float: right;
+    padding: 25px 25px 23px;
+    margin-top: 50px;
+    margin-right: 120px;
+    background: #fff;
+    opacity: .8;
+    width: 350px;
+    min-height: 300px;
+    font: 12px/1.3 "Microsoft YaHei",
+    Tahoma,
+    Helvetica,
+    Arial,
+    "\5b8b\4f53",
+    sans-serif;
+    color: black;
+}
+.loginForm h2{
+    text-align: center;
+}
+.loginForm .el-input{
+    width: 285px;
+}
+.loginForm .el-button{
+    margin-left: 15px;
+    width: 285px;
+}
+.goRegister{
+    margin-left: 50%;
+}
 /* 注册页头部 */
 .header > .regContainer{
     width: 1200px;
-    height: 445px;
+    height: 500px;
     border: 1px solid #666;
     margin: 0 auto;
 }
@@ -107,24 +160,25 @@
     height: 30px;
     line-height: 30px;
     opacity: .8;
+    text-align: center;
 }
-.header > .regContainer h3 .goLogin{
-    font-size: 14px;
-    float: right;
-}
-.header > .regContainer h3 .goLogin a{
-    color: red;
+.header > .regContainer .goLogin{
+    margin-left: 5%;
 }
 /* 注册表单 */
 .header > .regContainer .regForm{
-    padding-left: 390px;
-    margin-bottom: 18px;
+    padding-left: 380px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     position: relative;
     font: 12px/1.3 "Microsoft YaHei",Tahoma,Helvetica,Arial, "\5b8b\4f53", sans-serif;
     color: black;
 }
 .header > .regContainer .regForm .el-input{
-    width: 40%;
+    width: 285px;
+}
+.regForm .el-button{
+    width: 125px;
 }
 
 /* 分类 */
@@ -264,7 +318,7 @@
   background-color: #eaeaea;
   position: flex;
   height: 250px;
-  margin: 250px 0 0;
+  margin-top: 60px;
 }
 .footer .footer-container {
   width: 1200px;
