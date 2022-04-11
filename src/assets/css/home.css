@@ -227,10 +227,13 @@
     position: relative;
     overflow: hidden;
 }
+.type-nav > .container .carouseldiagram img{
+    cursor: pointer;
+}
 .type-nav > .container .carouseldiagram ul{
     position: absolute;
             height: 20px;
-            right: 500px;
+            left: 0px;
             bottom: 0px;
             text-align: center;
             padding: 5px;
