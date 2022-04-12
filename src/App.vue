@@ -5,7 +5,6 @@
     <SearchComponets v-show="$route.meta.show_search"></SearchComponets>
     <!-- 路由组件出口 -->
     <router-view></router-view>
-    <!-- 在Home、Search显示，在登录、注册隐藏 -->
     <Footer v-show="$route.meta.show_footer"></Footer>
   </div>
 </template>
