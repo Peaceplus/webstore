@@ -20,16 +20,16 @@
           placeholder="请输入用户名"
         ></el-input>
       </el-form-item>
-      <el-form-item props="pwd">
+      <el-form-item props="password">
         <label class="el-icon-lock"></label>
         <el-input
           type="password"
-          v-model="loginForm.pwd"
+          v-model="loginForm.password"
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="goHome">登录</el-button>
+        <el-button type="primary" @click="submitForm(loginForm)">登录</el-button>
       </el-form-item>
       <el-form-item>
         <el-link class="goRegister" @click="goRegister">没有帐号？立即注册</el-link>
@@ -53,15 +53,37 @@ export default {
     return {
       loginForm: {
         userName: "",
-        pwd: "",
+        password: "",
       },
       rules: {
         userName: [{ validator: validateUsername, trigger: "blur" }],
-        pwd: [{ validator: validatePwd, trigger: "blur" }],
+        password: [{ validator: validatePwd, trigger: "blur" }],
       },
     };
   },
   methods: {
+    submitForm(form){
+      this.$refs.form.validate((valid) => {
+        if(valid){
+          let info = JSON.parse(localStorage.getItem('Info'))
+          if(info[this.form.name]){
+            if(this.form.password == info[this.form.name]){
+              let userName = this.form.name;
+              localStorage.setItem('userName', userName)
+              this.$router.push('/home')
+              window.location.reload()
+            }else{
+              alert('密码错误，请检查用户名或密码是否正确');
+            }
+          }else{
+            alert('用户名不存在，请检查用户名');
+          }
+        }else{
+          console.log('error submit!');
+          return false;
+        }
+      });
+    },
     goRegister() {
       this.$router.push({
         path: "/register",

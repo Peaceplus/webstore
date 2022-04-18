@@ -5,13 +5,22 @@
     <div class="top">
       <div class="container">
         <div class="loginList">
-          <p>网上商城欢迎您！</p>
-          <p>
-            <span>请</span>
+          <div v-if="userName" class="userName">
+            <el-dropdown>
+              <span class="el-dropdown-link">
+                {{ userName }}<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-avatar icon="el-icon-user-solid"></el-avatar>
+                <el-dropdown-item>普通用户</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+          <div v-else>
             <!-- 声明式导航：务必要有to属性 -->
             <router-link class="login" to="/login">登录</router-link>
             <router-link class="register" to="/register">立即注册</router-link>
-          </p>
+          </div>
         </div>
 
         <div class="typeList">
@@ -35,7 +44,11 @@ export default {
   data() {
     return {};
   },
-
+  computed: {
+    userName: function () {
+      return localStorage.getItem("userName"); //获取用户名
+    },
+  },
   mounted() {},
 
   methods: {},

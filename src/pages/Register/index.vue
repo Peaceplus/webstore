@@ -36,23 +36,23 @@
             v-model="checkCode"
           />
         </el-form-item>
-        <el-form-item label="密码" prop="pwd">
+        <el-form-item label="密码" prop="password">
           <el-input
             type="password"
-            v-model="regForm.pwd"
+            v-model="regForm.password"
             auto-complete="off"
             placeholder="请输入密码"
           ></el-input>
         </el-form-item>
-        <el-form-item label="确认密码" prop="checkPwd">
+        <el-form-item label="确认密码" prop="checkPassword">
           <el-input
             type="password"
-            v-model="regForm.checkPwd"
+            v-model="regForm.checkPassword"
             auto-complete="off"
             placeholder="请再一次输入密码"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="type">
+        <!-- <el-form-item prop="type">
           <el-checkbox label="同意协议" v-model="regForm.type" name="type"></el-checkbox>
           <el-button type="text" @click="dialog">《用户协议》</el-button>
           <el-dialog
@@ -66,7 +66,7 @@
               <el-button type="primary" @click="agreement">同意</el-button>
             </span>
           </el-dialog>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item>
           <el-button @click="submitForm('regForm')">注册</el-button>
           <el-button @click="resetForm('regForm')">重置</el-button>
@@ -116,8 +116,8 @@ export default {
           )
         );
       } else {
-        if (this.regForm.checkPwd != "") {
-          this.$refs.regForm.validateField("checkPwd");
+        if (this.regForm.checkPassword != "") {
+          this.$refs.regForm.validateField("checkPassword");
         }
         callback();
       }
@@ -125,7 +125,7 @@ export default {
     var validatePwd2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
-      } else if (value !== this.regForm.pwd) {
+      } else if (value !== this.regForm.password) {
         callback(new Error("两次输入密码不一致"));
       } else {
         callback();
@@ -139,23 +139,23 @@ export default {
         canvas: "",
         code: "",
         checkCode: "",
-        pwd: "",
-        checkPwd: "",
+        password: "",
+        checkPassword: "",
         type: "",
       },
       rules: {
         userName: [{ required: true, validator: validateUsername, trigger: "blur" }],
         canvas: [{ required: true, validator: validateCanvas, trigger: "blur" }],
-        pwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
-        checkPwd: [{ required: true, validator: validatePwd2, trigger: "blur" }],
-        type: [
-          {
-            type: "array",
-            required: true,
-            message: "请勾选并同意用户协议",
-            trigger: "change",
-          },
-        ],
+        password: [{ required: true, validator: validatePwd, trigger: "blur" }],
+        checkPassword: [{ required: true, validator: validatePwd2, trigger: "blur" }],
+        // type: [
+        //   {
+        //     type: "array",
+        //     required: true,
+        //     message: "请勾选并同意用户协议",
+        //     trigger: "change",
+        //   },
+        // ],
       },
     };
   },
@@ -262,10 +262,35 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("注册成功！");
-        } else {
-          alert("注册失败！");
-          return false;
+          //两次密码相同
+          if(this.form.password == this.form.checkPassword){
+            //获取数据，判断用户名是否已存在
+            let info=JSON.parse(localStorage.getItem('Info'))
+            console.log(info)
+            //存在info数组时，立即开始内部if-else判断，无则else
+            if(info){
+              //若存在用户名，则返回用户名已存在
+              if(info[this.form.name]){
+                alert("用户名已存在")
+              }else{
+                //若没有则添加
+                //对象[(键)变量] = 值
+                info[this.form.name]=this.form.password
+                this.$router.push('/login')
+              }
+            }else{
+              //没有info时，新建info对象
+              info={[this.form.name]:this.form.password}
+              this.$router.push('/login')
+            }
+            // 存储数据
+            localStorage.setItem('Info', JSON.stringify(info))
+          }else{
+            alert('密码不一致')
+          }
+        }else{
+          console.log('error submit!')
+          return false
         }
       });
     },
