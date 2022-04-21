@@ -320,6 +320,30 @@
     color: #fff;
 }
 
+/*商品推荐*/
+.type-nav > .container .recommend{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 20px 20px;
+    position: absolute;
+    width: 1000px;
+    height: 200px;
+    left: 200px;
+    bottom: 40px;
+}
+.type-nav > .container .recommend .image{
+    cursor: pointer;
+}
+.type-nav > .container .recommend .intro{
+    text-align: center;
+    grid-row: 2;
+}
+.type-nav > .container .recommend .price{
+    text-align: center;
+    grid-row: 3;
+    color: crimson;
+}
+
 /* 竖列表分类 */
 .type-nav>.container .classify .content {
     height: 0 auto;
