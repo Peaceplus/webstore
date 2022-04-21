@@ -33,6 +33,11 @@
                   <li v-for="(x,y) in viewList" :key="y" :class="timer == y? 'active' :''" @click="page(y)" @mouseenter="clear" @mouseleave="change"></li>
                 </ul>
       </div>
+      <div class="recommend">
+                <div class="image" v-for="(item,index) in imList" :key="index"> <img :src="require('@/assets/'+item)"></div>
+                <div class="intro" v-for="i in inList" :key="i"><label>{{i}}</label></div>
+                <div class="price" v-for="p in prList" :key="p"><label>{{p}}</label></div>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +53,24 @@ export default {
       "images/1.png",
       "images/2.png",
       "images/3.png",
+    ],
+    imList:[
+      "images/4.png",
+      "images/5.png",
+      "images/6.png",
+      "images/7.png",
+    ],
+    inList:[
+      'LAVA智能手机',
+      '松下G95/G90相机',
+      '杰克丹尼威士忌',
+      'ROG玩家国度笔记本电脑',
+    ],
+    prList:[
+      '¥ 2999',
+      '¥ 5999',
+      '¥ 599',
+      '¥ 12999',
     ],
     timer:0,
     interrupt:null
