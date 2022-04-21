@@ -4,7 +4,6 @@
     <el-form
       :model="loginForm"
       status-icon
-      :rules="rules"
       ref="loginForm"
       label-position="left"
       label-width="25px"
@@ -55,20 +54,16 @@ export default {
         userName: "",
         password: "",
       },
-      rules: {
-        userName: [{ validator: validateUsername, trigger: "blur" }],
-        password: [{ validator: validatePwd, trigger: "blur" }],
-      },
     };
   },
   methods: {
-    submitForm(form){
-      this.$refs.form.validate((valid) => {
+    submitForm(loginForm){
+      this.$refs.loginForm.validate((valid) => {
         if(valid){
           let info = JSON.parse(localStorage.getItem('Info'))
-          if(info[this.form.name]){
-            if(this.form.password == info[this.form.name]){
-              let userName = this.form.name;
+          if(info[this.loginForm.name]){
+            if(this.loginForm.password == info[this.loginForm.name]){
+              let userName = this.loginForm.name;
               localStorage.setItem('userName', userName)
               this.$router.push('/home')
               window.location.reload()
@@ -88,12 +83,7 @@ export default {
       this.$router.push({
         path: "/register",
       });
-    },
-    goHome() {
-      this.$router.push({
-        path: "/home",
-      });
-    },
+    }
   },
 };
 </script>

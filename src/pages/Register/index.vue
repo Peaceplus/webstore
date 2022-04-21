@@ -141,7 +141,7 @@ export default {
         checkCode: "",
         password: "",
         checkPassword: "",
-        type: "",
+        // type: "",
       },
       rules: {
         userName: [{ required: true, validator: validateUsername, trigger: "blur" }],
@@ -259,28 +259,28 @@ export default {
         })
         .catch((_) => {});
     },
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    submitForm(regForm) {
+      this.$refs[regForm].validate((valid) => {
         if (valid) {
           //两次密码相同
-          if(this.form.password == this.form.checkPassword){
+          if(this.regForm.password == this.regForm.checkPassword){
             //获取数据，判断用户名是否已存在
             let info=JSON.parse(localStorage.getItem('Info'))
             console.log(info)
             //存在info数组时，立即开始内部if-else判断，无则else
             if(info){
               //若存在用户名，则返回用户名已存在
-              if(info[this.form.name]){
+              if(info[this.regForm.name]){
                 alert("用户名已存在")
               }else{
                 //若没有则添加
                 //对象[(键)变量] = 值
-                info[this.form.name]=this.form.password
+                info[this.regForm.name]=this.regForm.password
                 this.$router.push('/login')
               }
             }else{
               //没有info时，新建info对象
-              info={[this.form.name]:this.form.password}
+              info={[this.regForm.name]:this.regForm.password}
               this.$router.push('/login')
             }
             // 存储数据
@@ -294,8 +294,8 @@ export default {
         }
       });
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
+    resetForm(regForm) {
+      this.$refs[regForm].resetFields();
     },
     dialog() {
       this.dialogVisible = true;
