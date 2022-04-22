@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
     font-family: "Helvetica Neue",
         Helvetica,
         "PingFang SC",
@@ -13,11 +14,9 @@
 
 /* 顶部容器 */
 .header>.top {
-    background-color: white;
-    height: 30px;
-    line-height: 30px;
-    margin: 0;
-    padding: 0;
+    background-color: rgb(39, 40, 43);
+    height: 40px;
+    line-height: 40px;
 }
 
 .header>.top .container {
@@ -26,57 +25,67 @@
     overflow: hidden;
 }
 
+.header>.top .container .typeList {
+    position: relative;
+    float: left;
+    font-size: 14px;
+    color: #fefefe;
+}
+
+.header>.top .container .typeList .home {
+    color: #999;
+}
+
+.header>.top .container .typeList .home:hover {
+    color: #fefefe;
+}
+
 /* 顶部登录|注册 */
 .header>.top .container .loginList {
-    float: left;
+    position: relative;
+    float: right;
     margin-right: 10px;
-    font: 12px/1.3 "Microsoft YaHei", Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
-    color: #333;
+    font-size: 14px;
 }
 
 .header>.top .container .loginList .login {
-    text-decoration: none;
-    color: #333;
+    color: #999;
 }
 
 .header>.top .container .loginList .login:hover {
-    color: rgb(238, 45, 45);
-}
-
-.el-dropdown-link {
-    cursor: pointer;
-    color: #409EFF;
-}
-
-.el-icon-arrow-down {
-    font-size: 12px;
+    color: #fefefe;
 }
 
 .header>.top .container .loginList .register {
-    border-left: 1px solid gray;
+    border-left: 1px solid #666;
     padding: 0 5px;
     margin-left: 5px;
-    text-decoration: none;
-    color: #333;
+    color: #999;
 }
 
 .header>.top .container .loginList .register:hover {
-    color: rgb(238, 45, 45);
+    color: #fefefe;
 }
 
-.header>.top .container .typeList {
-    float: right;
+.header>.top .container .loginList .info {
+    border-left: 1px solid #666;
+    padding: 0 5px;
+    margin-left: 5px;
+    color: #999;
 }
 
-.header>.top .container .typeList a {
-    padding: 0 10px;
-    font: 12px/1.3 "Microsoft YaHei", Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
-    color: #333;
-    text-decoration: none;
+.header>.top .container .loginList .info:hover {
+    color: #fefefe;
 }
 
-.header>.top .container .typeList a+a {
-    border-left: 1px solid gray;
+.header>.top .container .cart {
+    color: #999;
+    background-color: rgb(39, 40, 43);
+    border-color: rgb(39, 40, 43);
+}
+
+.header>.top .container .cart:hover {
+    color: #fefefe;
 }
 
 .bottom {
@@ -152,12 +161,7 @@
     opacity: .8;
     width: 350px;
     min-height: 300px;
-    font: 12px/1.3 "Microsoft YaHei",
-        Tahoma,
-        Helvetica,
-        Arial,
-        "\5b8b\4f53",
-        sans-serif;
+    font-size: 14px;
     color: black;
 }
 
@@ -170,12 +174,9 @@
 }
 
 .loginForm .el-button {
+    margin-top: 20px;
     margin-left: 15px;
     width: 285px;
-}
-
-.goRegister {
-    margin-left: 50%;
 }
 
 /* 注册页头部 */
@@ -321,7 +322,7 @@
 }
 
 /*商品推荐*/
-.type-nav > .container .recommend{
+.type-nav>.container .recommend {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 200px 20px 20px;
@@ -331,14 +332,17 @@
     left: 200px;
     bottom: 40px;
 }
-.type-nav > .container .recommend .image{
+
+.type-nav>.container .recommend .image {
     cursor: pointer;
 }
-.type-nav > .container .recommend .intro{
+
+.type-nav>.container .recommend .intro {
     text-align: center;
     grid-row: 2;
 }
-.type-nav > .container .recommend .price{
+
+.type-nav>.container .recommend .price {
     text-align: center;
     grid-row: 3;
     color: crimson;
@@ -391,43 +395,15 @@
 
 .footer {
     background-color: #eaeaea;
-    position: flex;
-    height: 250px;
-    margin-top: 60px;
+    position: relative;
+    height: auto;
+    margin-top: 200px;
 }
 
 .footer .footer-container {
     width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-}
-
-.footer .footer-container .footerList {
-    padding: 20px;
-    border-bottom: 1px solid #e4e1e1;
-    border-top: 1px solid #e4e1e1;
-    overflow: hidden;
-    padding-left: 40px;
-    font: 12px/1.3 "Microsoft YaHei", Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
-    /* 用 ascii 字符表示，使得在任何编码下都无问题 */
-    color: #333;
-}
-
-.footer .footer-container .footerList .footerItem {
-    width: 16.6666667%;
-    float: left;
-}
-
-.footer .footer-container .footerList .footerItem h4 {
-    font-size: 14px;
-}
-
-.footer .footer-container .footerList .footerItem .footerItemCon li {
-    line-height: 18px;
-}
-
-.footer .footer-container .footerList .footerItem:last-child img {
-    width: 121px;
 }
 
 .footer .footer-container .copyright {
@@ -445,14 +421,13 @@
 }
 
 .footer .footer-container .copyright .helpLink li .space {
-    border-left: 1px solid #666;
+    border-left: 1px solid #999;
     width: 1px;
-    height: 13px;
-    background: #666;
+    height: auto;
+    background: #999;
     margin: 8px 10px;
 }
 
 .footer .footer-container .copyright p {
-    margin: 10px 0;
     text-align: center;
 }

@@ -3,7 +3,7 @@
   <div class="header">
     <div class="regContainer">
       <!-- 注册表头 -->
-      <h3>新用户注册</h3>
+      <h3>注册</h3>
       <!-- 用户名 -->
       <el-form
         :model="regForm"
@@ -263,34 +263,34 @@ export default {
       this.$refs[regForm].validate((valid) => {
         if (valid) {
           //两次密码相同
-          if(this.regForm.password == this.regForm.checkPassword){
+          if (this.regForm.password == this.regForm.checkPassword) {
             //获取数据，判断用户名是否已存在
-            let info=JSON.parse(localStorage.getItem('Info'))
-            console.log(info)
+            let info = JSON.parse(localStorage.getItem("Info"));
+            console.log(info);
             //存在info数组时，立即开始内部if-else判断，无则else
-            if(info){
+            if (info) {
               //若存在用户名，则返回用户名已存在
-              if(info[this.regForm.name]){
-                alert("用户名已存在")
-              }else{
+              if (info[this.regForm.name]) {
+                alert("用户名已存在");
+              } else {
                 //若没有则添加
                 //对象[(键)变量] = 值
-                info[this.regForm.name]=this.regForm.password
-                this.$router.push('/login')
+                info[this.regForm.name] = this.regForm.password;
+                this.$router.push("/login");
               }
-            }else{
+            } else {
               //没有info时，新建info对象
-              info={[this.regForm.name]:this.regForm.password}
-              this.$router.push('/login')
+              info = { [this.regForm.name]: this.regForm.password };
+              this.$router.push("/login");
             }
             // 存储数据
-            localStorage.setItem('Info', JSON.stringify(info))
-          }else{
-            alert('密码不一致')
+            localStorage.setItem("Info", JSON.stringify(info));
+          } else {
+            alert("密码不一致");
           }
-        }else{
-          console.log('error submit!')
-          return false
+        } else {
+          console.log("error submit!");
+          return false;
         }
       });
     },

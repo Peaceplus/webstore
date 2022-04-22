@@ -28,12 +28,16 @@
         ></el-input>
       </el-form-item>
       <el-form-item>
+        <el-checkbox v-model="checked"
+          >已阅读并同意
+          <el-link @click="drawer = true" :underline="false">《用户协议》</el-link>
+        </el-checkbox>
         <el-button type="primary" @click="submitForm(loginForm)">登录</el-button>
       </el-form-item>
-      <el-form-item>
-        <el-link class="goRegister" @click="goRegister">没有帐号？立即注册</el-link>
-      </el-form-item>
     </el-form>
+    <el-drawer title="网上商城用户协议" :visible.sync="drawer" direction="ttb">
+      <span>本网站仅用于学习交流使用！</span>
+    </el-drawer>
   </div>
 </template>
 
@@ -50,6 +54,8 @@ export default {
       callback();
     };
     return {
+      checked: true,
+      drawer: false,
       loginForm: {
         userName: "",
         password: "",
@@ -57,33 +63,28 @@ export default {
     };
   },
   methods: {
-    submitForm(loginForm){
+    submitForm(loginForm) {
       this.$refs.loginForm.validate((valid) => {
-        if(valid){
-          let info = JSON.parse(localStorage.getItem('Info'))
-          if(info[this.loginForm.name]){
-            if(this.loginForm.password == info[this.loginForm.name]){
+        if (valid) {
+          let info = JSON.parse(localStorage.getItem("Info"));
+          if (info[this.loginForm.name]) {
+            if (this.loginForm.password == info[this.loginForm.name]) {
               let userName = this.loginForm.name;
-              localStorage.setItem('userName', userName)
-              this.$router.push('/home')
-              window.location.reload()
-            }else{
-              alert('密码错误，请检查用户名或密码是否正确');
+              localStorage.setItem("userName", userName);
+              this.$router.push("/home");
+              window.location.reload();
+            } else {
+              alert("密码错误，请检查用户名或密码是否正确");
             }
-          }else{
-            alert('用户名不存在，请检查用户名');
+          } else {
+            alert("用户名不存在，请检查用户名");
           }
-        }else{
-          console.log('error submit!');
+        } else {
+          console.log("error submit!");
           return false;
         }
       });
     },
-    goRegister() {
-      this.$router.push({
-        path: "/register",
-      });
-    }
   },
 };
 </script>

@@ -46,7 +46,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer: true
+        show_footer: false
       },
     },
     {
@@ -57,7 +57,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer: true
+        show_footer: false
       },
     },
     {
@@ -68,7 +68,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
-        show_footer: true
+        show_footer: false
       },
     },
     {
