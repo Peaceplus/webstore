@@ -1,6 +1,6 @@
 @
 <template>
-  <div class="Container">
+  <div class="account-container">
     <vue-particles
       class="login-bg"
       color="#dedede"

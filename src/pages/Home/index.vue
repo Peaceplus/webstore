@@ -1,7 +1,7 @@
 @<template>
   <div>
       <!-- 三级联动全局组件:已注册全局，不需要再次import -->
-      <TypeNav></TypeNav>
+      <HomeItem></HomeItem>
   </div>
 </template>
 

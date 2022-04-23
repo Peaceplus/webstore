@@ -25,7 +25,9 @@ import "@/assets/css/home.css";
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      activeIndex:'1',
+    };
   },
   computed: {
     userName: function () {
@@ -34,7 +36,11 @@ export default {
   },
   mounted() {},
 
-  methods: {},
+  methods: {
+    handleSelect(key,keyPath){
+      console.log(key,keyPath);
+    }
+  },
 };
 </script>
 

@@ -88,60 +88,61 @@
     color: #fefefe;
 }
 
-.bottom {
+.topContainer {
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 
-.bottom>.logoArea {
+.topContainer>.logoArea {
     float: left;
 }
 
-.bottom>.logoArea .logoImg img {
+.topContainer>.logoArea .logoImg img {
     zoom: 0.5;
     width: auto;
     height: auto;
 }
 
-.bottom>.search-container .searchArea {
-    float: right;
-    margin-top: 35px;
+.topContainer>.TypeArea{
+    z-index: -1;
 }
 
-.bottom>.search-container .searchArea .searchForm {
+.topContainer>.searchArea {
+    float: right;
+    margin-top: 15px;
+}
+
+.topContainer>.searchArea .searchForm {
     overflow: hidden;
 }
 
-.bottom>.search-container .searchArea .searchForm input {
+.topContainer>.searchArea .searchForm input {
     box-sizing: border-box;
-    width: 490px;
-    height: 32px;
-    line-height: 32px;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
     padding: 0px 4px;
-    border-radius: 5px;
-    border: 1px solid grey;
+    font-size: 14px;
+    color: #999;
+    border: 1px solid #999;
     float: left;
 }
 
-.bottom>.search-container .searchArea .searchForm input:focus {
+.topContainer>.searchArea .searchForm input:focus {
     outline: none;
 }
 
-.bottom>.search-container .searchArea .searchForm button {
-    height: 32px;
-    line-height: 32px;
-    width: 68px;
-    border-radius: 5px;
-    background-color: orangered;
-    border: none;
-    color: white;
-    float: left;
+.topContainer>.searchArea .searchForm .el-button{
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    background-color: #fefefe;
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid #999;
     cursor: pointer;
-}
-
-.bottom>.search-container .searchArea .searchForm button:focus {
-    outline: none;
 }
 
 /* 登录 */
@@ -151,10 +152,10 @@
     height: 100%;
     background: #999;
 }
-.Container {
+.account-container {
     width: 100%;
     position: absolute;
-    height: 600px;
+    min-height: 800px;
     /* height: auto;
     background-image: url(../images/login/bg1.jpg);
     background-position: 50%; */
@@ -208,19 +209,19 @@
 }
 
 /* 分类 */
-.type-nav>.container {
+.home-container {
     width: 1200px;
-    margin: 0 auto;
+    margin-top: 10px;
     display: flex;
     position: relative;
 }
 
-.type-nav>.container .classify {
+.home-container .classify {
     position: relative;
     display: inline-block;
 }
 
-.type-nav>.container .classify button {
+.home-container .classify button {
     display: inline-block;
     width: 200px;
     line-height: 1;
@@ -240,23 +241,23 @@
     font-size: 14px;
 }
 
-.type-nav>.container .classify button:hover {
+.home-container .classify button:hover {
     background-color: #ff6700;
 }
 
 /*轮播图*/
-.type-nav>.container .carouseldiagram {
+.home-container .carouseldiagram {
     width: 1000px;
     height: 320px;
     position: relative;
     overflow: hidden;
 }
 
-.type-nav>.container .carouseldiagram img {
+.home-container .carouseldiagram img {
     cursor: pointer;
 }
 
-.type-nav>.container .carouseldiagram ul {
+.home-container .carouseldiagram ul {
     position: absolute;
     height: 20px;
     left: 0px;
@@ -265,11 +266,11 @@
     padding: 5px;
 }
 
-.type-nav>.container .carouseldiagram ul .active {
+.home-container .carouseldiagram ul .active {
     background-color: rgb(119, 102, 102);
 }
 
-.type-nav>.container .carouseldiagram ul li {
+.home-container .carouseldiagram ul li {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -279,7 +280,7 @@
     margin: 2px;
 }
 
-.type-nav>.container .carouseldiagram .up-page {
+.home-container .carouseldiagram .up-page {
     cursor: pointer;
     position: absolute;
     text-align: center;
@@ -292,7 +293,7 @@
     color: #fff;
 }
 
-.type-nav>.container .carouseldiagram .down-page {
+.home-container .carouseldiagram .down-page {
     cursor: pointer;
     position: absolute;
     text-align: center;
@@ -306,7 +307,7 @@
 }
 
 /*商品推荐*/
-.type-nav>.container .recommend {
+.home-container .recommend {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 200px 20px 20px;
@@ -317,27 +318,27 @@
     bottom: 40px;
 }
 
-.type-nav>.container .recommend .image {
+.home-container .recommend .image {
     cursor: pointer;
 }
 
-.type-nav>.container .recommend .intro {
+.home-container .recommend .intro {
     text-align: center;
     grid-row: 2;
 }
 
-.type-nav>.container .recommend .price {
+.home-container .recommend .price {
     text-align: center;
     grid-row: 3;
     color: crimson;
 }
 
 /* 竖列表分类 */
-.type-nav>.container .classify .content {
+.home-container .classify .content {
     height: 0 auto;
 }
 
-.type-nav>.container .classify .content a {
+.home-container .classify .content a {
     display: block;
     width: 200px;
     height: 40px;
@@ -351,11 +352,11 @@
 }
 
 /* 鼠标经过链接变换背景颜色 */
-.type-nav>.container .content a:hover {
+.home-container .content a:hover {
     background-color: #ff6700;
 }
 
-.type-nav>.container .classify:hover .content {
+.home-container .classify:hover .content {
     display: block;
 }
 

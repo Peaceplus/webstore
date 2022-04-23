@@ -1,18 +1,37 @@
 <template>
-  <div class="bottom">
+  <div class="topContainer">
     <div class="logoArea">
       <router-link class="logoImg" to="/home">
         <img src="../../assets/images/logo.png" alt="logo" />
       </router-link>
     </div>
-    <div class="search-container">
-      <div class="searchArea">
-        <form action="###" class="searchForm">
-          <input type="text" id="autocomplete" autocomplete="off" v-model="keyword" />
-          <button type="button" @click="goSearch">搜索</button>
-        </form>
-      </div>
+    <div class="searchArea">
+      <form class="searchForm">
+        <input
+          type="text"
+          id="autocomplete"
+          autocomplete="off"
+          v-model="keyword"
+          placeholder="快来搜索你感兴趣的内容吧"
+        />
+        <el-button @click="goSearch" class="iconfont icon-search"></el-button>
+      </form>
     </div>
+    <el-menu
+      :default-active="activeIndex"
+      class="TypeArea"
+      mode="horizontal"
+      @select="handleSelect"
+    >
+      <el-submenu index="1">
+        <template slot="title">生活用品</template></el-submenu>
+      <el-submenu index="2">
+        <template slot="title">数码产品</template>
+        <el-menu-item index="2-1">手机</el-menu-item>
+        <el-menu-item index="2-2">相机</el-menu-item>
+        <el-menu-item index="2-3">电脑</el-menu-item>
+      </el-submenu>
+    </el-menu>
   </div>
 </template>
 
@@ -23,6 +42,7 @@ export default {
 
   data() {
     return {
+      activeIndex: "1",
       keyword: "",
     };
   },
@@ -47,6 +67,9 @@ export default {
         () => {},
         () => {}
       );
+    },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     },
   },
 };
