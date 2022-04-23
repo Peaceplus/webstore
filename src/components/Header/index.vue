@@ -9,8 +9,8 @@
         </div>
         <div class="loginList">
           <!-- 声明式导航：务必要有to属性 -->
-          <router-link class="login" to="/login">登录</router-link>
-          <router-link class="register" to="/register">注册</router-link>
+          <router-link class="login" to="/account">登录</router-link>
+          <router-link class="register" to="/account">注册</router-link>
           <router-link class="info" to="/info">个人中心</router-link>
           <router-link class="cart" to="/cart">
             <i class="el-icon-shopping-cart-1">购物车</i></router-link>

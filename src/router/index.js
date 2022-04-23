@@ -6,8 +6,7 @@ Vue.use(VueRouter);
 //引入路由组件
 import Home from '@/pages/Home';
 import Search from '@/pages/Search';
-import Login from '@/pages/Login';
-import Register from '@/pages/Register';
+import Account from '@/pages/Account';
 import Info from '@/pages/Info';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
@@ -41,8 +40,10 @@ export default new VueRouter({
     {
       name: "home",
       path: "/home",
+      title: "首页",
       component: Home,
       meta: {
+        login:false,
         show_header: true,
         show_logo: false,
         show_search: true,
@@ -52,8 +53,10 @@ export default new VueRouter({
     {
       name: "search",
       path: "/search/:keyword?",
+      title: "搜索页",
       component: Search,
       meta: {
+        login:false,
         show_header: true,
         show_logo: false,
         show_search: true,
@@ -61,21 +64,12 @@ export default new VueRouter({
       },
     },
     {
-      name: "login",
-      path: '/login',
-      component: Login,
+      name: "account",
+      path: '/account',
+      title: "登录",
+      component: Account,
       meta: {
-        show_header: true,
-        show_logo: true,
-        show_search: false,
-        show_footer: false
-      },
-    },
-    {
-      name: "register",
-      path: '/register',
-      component: Register,
-      meta: {
+        login: true,
         show_header: true,
         show_logo: true,
         show_search: false,
@@ -85,8 +79,10 @@ export default new VueRouter({
     {
       name: "info",
       path: '/info',
+      title: "个人中心",
       component: Info,
       meta: {
+        login: true,
         show_header: true,
         show_logo: true,
         show_search: false,
