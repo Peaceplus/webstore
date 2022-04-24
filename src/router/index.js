@@ -8,6 +8,7 @@ import Home from '@/pages/Home';
 import Search from '@/pages/Search';
 import Account from '@/pages/Account';
 import Info from '@/pages/Info';
+import Cart from '@/pages/Cart';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
@@ -43,7 +44,7 @@ export default new VueRouter({
       title: "首页",
       component: Home,
       meta: {
-        login:false,
+        login: false,
         show_header: true,
         show_logo: false,
         show_search: true,
@@ -56,7 +57,7 @@ export default new VueRouter({
       title: "搜索页",
       component: Search,
       meta: {
-        login:false,
+        login: false,
         show_header: true,
         show_logo: false,
         show_search: true,
@@ -88,6 +89,19 @@ export default new VueRouter({
         show_search: false,
         show_footer: false
       },
+    },
+    {
+      name: "cart",
+      path: '/cart',
+      title: "购物车",
+      component: Cart,
+      meta: {
+        login: true,
+        show_header: true,
+        show_logo: false,
+        show_search: true,
+        show_footer: false,
+      }
     },
     //重定向，项目运行时，访问/，定向至首页
     {

@@ -20,7 +20,7 @@
       clickMode="push"
     >
     </vue-particles>
-    <el-tabs v-model="ariaSelected" @tab-click="handleClick" class="form">
+    <el-tabs type="border-card" v-model="ariaSelected" @tab-click="handleClick" class="form">
       <el-tab-pane label="登录" name="login">
         <el-form
           :model="loginForm"
@@ -127,7 +127,7 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button @click="submitForm('regForm')">注册</el-button>
+            <el-button type="primary" @click="submitForm('regForm')">注册</el-button>
             <el-button @click="resetForm('regForm')">重置</el-button>
           </el-form-item>
         </el-form>
