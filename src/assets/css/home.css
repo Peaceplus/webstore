@@ -222,9 +222,10 @@
 }
 
 .home-container .category-list {
-    position: relative;
+    position: absolute;
     display: inline-block;
     background: rgb(119, 102, 102, .6);
+    left: 320px;
 }
 
 .home-container .category-list ul {
@@ -240,6 +241,10 @@
 
 .home-container .category-list ul:hover {
     background-color: #ff6700;
+}
+
+.home-container .category-list li{
+    list-style-type: none;
 }
 
 .home-container .category-list em {
@@ -266,8 +271,9 @@
 .home-container .carouseldiagram {
     width: 1000px;
     height: 320px;
-    position: relative;
+    position: absolute;
     overflow: hidden;
+    left: 560px;
 }
 
 .home-container .carouseldiagram img {
@@ -331,8 +337,8 @@
     position: absolute;
     width: 1000px;
     height: 200px;
-    left: 200px;
-    bottom: 40px;
+    left: 560px;
+    top: 320px;
 }
 
 .home-container .recommend .image {

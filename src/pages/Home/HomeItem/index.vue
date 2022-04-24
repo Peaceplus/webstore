@@ -3,7 +3,7 @@
     <div class="category-list">
       <ul>
         <li class="category-item">
-          <a @click="goCategory" name="dailyUse">
+          <a  name="dailyUse">
             生活用品
             <em class="iconfont icon-right-notfill"></em>
           </a>
@@ -11,7 +11,7 @@
       </ul>
       <ul>
         <li class="category-item">
-          <a @click="goCategory" name="digital">
+          <a  name="digital">
             数码产品
             <em class="iconfont icon-right-notfill"></em>
           </a>
@@ -19,7 +19,7 @@
       </ul>
       <ul>
         <li class="category-item">
-          <a @click="goCategory" name="computer">
+          <a  name="computer">
             电脑及配件
             <em class="iconfont icon-right-notfill"></em>
           </a>
@@ -35,7 +35,7 @@
           v-show="timer == index"
           @mouseenter="clear"
           @mouseleave="change"
-        />
+        >
       </a>
       <span
         class="up-page"
@@ -83,7 +83,6 @@ export default {
   name: "HomeItem",
 
   data: () => ({
-    show_content: true,
     viewList: ["images/1.png", "images/2.png", "images/3.png"],
     imList: ["images/4.png", "images/5.png", "images/6.png", "images/7.png"],
     inList: [
