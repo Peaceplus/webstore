@@ -1,77 +1,79 @@
 <template>
-  <div class="home-container">
-    <div class="category-list">
-      <ul>
-        <li class="category-item">
-          <a  name="dailyUse">
-            生活用品
-            <em class="iconfont icon-right-notfill"></em>
-          </a>
-        </li>
-      </ul>
-      <ul>
-        <li class="category-item">
-          <a  name="digital">
-            数码产品
-            <em class="iconfont icon-right-notfill"></em>
-          </a>
-        </li>
-      </ul>
-      <ul>
-        <li class="category-item">
-          <a  name="computer">
-            电脑及配件
-            <em class="iconfont icon-right-notfill"></em>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="carouseldiagram">
-      <a>
-        <img
-          v-for="(item, index) in viewList"
-          :key="index"
-          :src="require('@/assets/' + item)"
-          v-show="timer == index"
+  <div class="outer">
+    <div class="home-container">
+      <div class="category-list">
+        <ul>
+          <li class="category-item">
+            <a @click="goCategory" name="dailyUse">
+              生活用品
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="category-item">
+            <a @click="goCategory" name="digital">
+              数码产品
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="category-item">
+            <a @click="goCategory" name="computer">
+              电脑及配件
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="carouseldiagram">
+        <a>
+          <img
+            v-for="(item, index) in viewList"
+            :key="index"
+            :src="require('@/assets/' + item)"
+            v-show="timer == index"
+            @mouseenter="clear"
+            @mouseleave="change"
+          />
+        </a>
+        <span
+          class="up-page"
+          @click="turnpage('up')"
           @mouseenter="clear"
           @mouseleave="change"
         >
-      </a>
-      <span
-        class="up-page"
-        @click="turnpage('up')"
-        @mouseenter="clear"
-        @mouseleave="change"
-      >
-        &lt;
-      </span>
-      <span
-        class="down-page"
-        @click="turnpage('down')"
-        @mouseenter="clear"
-        @mouseleave="change"
-        >&gt;</span
-      >
-      <ul class="slide-index">
-        <li
-          v-for="(x, y) in viewList"
-          :key="y"
-          :class="timer == y ? 'active' : ''"
-          @click="page(y)"
+          &lt;
+        </span>
+        <span
+          class="down-page"
+          @click="turnpage('down')"
           @mouseenter="clear"
           @mouseleave="change"
-        ></li>
-      </ul>
-    </div>
-    <div class="recommend">
-      <div class="image" v-for="(item, index) in imList" :key="index">
-        <img :src="require('@/assets/' + item)" />
+          >&gt;</span
+        >
+        <ul class="slide-index">
+          <li
+            v-for="(x, y) in viewList"
+            :key="y"
+            :class="timer == y ? 'active' : ''"
+            @click="page(y)"
+            @mouseenter="clear"
+            @mouseleave="change"
+          ></li>
+        </ul>
       </div>
-      <div class="intro" v-for="i in inList" :key="i">
-        <label>{{ i }}</label>
-      </div>
-      <div class="price" v-for="p in prList" :key="p">
-        <label>{{ p }}</label>
+      <div class="recommend">
+        <div class="image" v-for="(item, index) in imList" :key="index">
+          <img :src="require('@/assets/' + item)" />
+        </div>
+        <div class="intro" v-for="i in inList" :key="i">
+          <label>{{ i }}</label>
+        </div>
+        <div class="price" v-for="p in prList" :key="p">
+          <label>{{ p }}</label>
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +103,10 @@ export default {
   },
 
   methods: {
+    goCategory() {
+      this.$router.push("/category");
+      return this.a.name;
+    },
     change() {
       this.interrupt = setInterval(() => {
         this.timer++;

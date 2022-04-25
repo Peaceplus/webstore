@@ -12,6 +12,9 @@
         sans-serif;
 }
 
+body{
+    background: 0 36px repeat-y url("../images/home/bg0.png");
+}
 /* 顶部容器 */
 .header>.top {
     background-color: rgb(39, 40, 43);
@@ -21,7 +24,8 @@
 
 .header>.top .container {
     width: 1200px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
 }
 
@@ -91,13 +95,13 @@
 .topContainer {
     width: 1200px;
     margin: 0 auto;
+    background-color: #fefefe;
     overflow: hidden;
     position: relative;
 }
 
 .topContainer>.logoArea {
     float: left;
-
 }
 
 .topContainer>.logoArea .logoImg img {
@@ -107,7 +111,7 @@
 }
 
 .topContainer>.topNav{
-    z-index: -1;
+    display: inline-block;
 }
 
 .topContainer>.searchArea {
@@ -214,6 +218,13 @@
 }
 
 /* 分类 */
+.outer{
+    background: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    border-radius: 18px 18px 0 0;
+    position: relative;
+}
 .home-container {
     width: 1200px;
     margin-top: 10px;
@@ -225,12 +236,11 @@
     position: absolute;
     display: inline-block;
     background: rgb(119, 102, 102, .6);
-    left: 320px;
 }
 
 .home-container .category-list ul {
     margin-top: 20px;
-    width: 240px;
+    width: 230px;
     height: 0 auto;
     cursor: pointer;
 }
@@ -273,7 +283,7 @@
     height: 320px;
     position: absolute;
     overflow: hidden;
-    left: 560px;
+    left: 230px;
 }
 
 .home-container .carouseldiagram img {
@@ -337,7 +347,7 @@
     position: absolute;
     width: 1000px;
     height: 200px;
-    left: 560px;
+    left: 230px;
     top: 320px;
 }
 
