@@ -240,7 +240,7 @@ body{
 
 .home-container .category-list ul {
     margin-top: 20px;
-    width: 230px;
+    width: 220px;
     height: 0 auto;
     cursor: pointer;
 }
@@ -267,7 +267,7 @@ body{
     display: block;
     width: 200px;
     height: 40px;
-    padding-left: 40px;
+    padding-left: 20px;
     line-height: 40px;
     color: #fff;
     font-size: 14px;
@@ -283,7 +283,7 @@ body{
     height: 320px;
     position: absolute;
     overflow: hidden;
-    left: 230px;
+    left: 220px;
 }
 
 .home-container .carouseldiagram img {
@@ -347,7 +347,7 @@ body{
     position: absolute;
     width: 1000px;
     height: 200px;
-    left: 230px;
+    left: 220px;
     top: 320px;
 }
 
