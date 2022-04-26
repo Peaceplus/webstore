@@ -279,7 +279,7 @@ body{
 
 /*轮播图*/
 .home-container .carouseldiagram {
-    width: 1000px;
+    width: 980px;
     height: 320px;
     position: absolute;
     overflow: hidden;
@@ -345,7 +345,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 200px 20px 20px;
     position: absolute;
-    width: 1000px;
+    width: 980px;
     height: 200px;
     left: 220px;
     top: 320px;
