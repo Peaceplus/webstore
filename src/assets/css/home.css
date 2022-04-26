@@ -449,3 +449,8 @@ body{
 .footer .footer-container .copyright p {
     text-align: center;
 }
+
+/*个人中心*/
+.personal {
+    display: flex;
+}
