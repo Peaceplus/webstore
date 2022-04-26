@@ -93,6 +93,10 @@ body{
     color: #fefefe;
 }
 
+.navContainer{
+    width: 100%;
+    background-color: #fefefe;
+}
 .topContainer {
     width: 1200px;
     margin: 0 auto;

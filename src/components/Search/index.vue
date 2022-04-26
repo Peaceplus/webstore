@@ -1,4 +1,5 @@
 <template>
+<div class="navContainer">
   <div class="topContainer">
     <div class="logoArea">
       <router-link class="logoImg" to="/home">
@@ -26,6 +27,7 @@
         <el-menu-item index="2-3">电脑</el-menu-item>
       </el-submenu>
     </el-menu>
+  </div>
   </div>
 </template>
 
