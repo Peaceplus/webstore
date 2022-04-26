@@ -3,12 +3,12 @@
   <div class="account-container">
     <vue-particles
       class="login-bg"
-      color="#dedede"
+      color="#999"
       :particleOpacity="0.7"
       :particlesNumber="80"
       shapeType="circle"
       :particleSize="4"
-      linesColor="#dedede"
+      linesColor="#999"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
