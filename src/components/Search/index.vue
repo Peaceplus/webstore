@@ -18,7 +18,7 @@
       </form>
     </div>
     <el-menu class="topNav" :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-submenu index="1"> <template slot="title">生活用品</template></el-submenu>
+      <el-menu-item index="1">首页</el-menu-item>
       <el-submenu index="2">
         <template slot="title">数码产品</template>
         <el-menu-item index="2-1">手机</el-menu-item>

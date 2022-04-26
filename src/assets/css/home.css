@@ -13,7 +13,8 @@
 }
 
 body{
-    background: 0 36px repeat-y url("../images/home/bg0.png");
+    background: 0 36px repeat url("../images/home/bg1.png");
+    opacity: .8;
 }
 /* 顶部容器 */
 .header>.top {
@@ -221,6 +222,7 @@ body{
 .outer{
     background: #fff;
     width: 1200px;
+    height: 800px;
     margin: 0 auto;
     border-radius: 18px 18px 0 0;
     position: relative;
