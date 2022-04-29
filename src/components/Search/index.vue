@@ -19,7 +19,7 @@
       </form>
     </div>
     <el-menu class="topNav" :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">首页</el-menu-item>
+      <el-menu-item index="1" @click="goHome">首页</el-menu-item>
       <el-submenu index="2">
         <template slot="title">数码产品</template>
         <el-menu-item index="2-1">手机</el-menu-item>
@@ -47,6 +47,9 @@ export default {
 
   methods: {
     //搜索按钮的回调函数：向search路由进行跳转
+    goHome(){
+      this.$router.push('/home')
+    },
     goSearch() {
       //路由传参：
       //1.字符串
