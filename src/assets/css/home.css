@@ -425,27 +425,31 @@ body {
 
 
 /* 购物车 */
-.cart{
+.cart {
     width: 1200px;
     margin: 0 auto;
 }
-.cartTitle{
+
+.cartTitle {
     margin: 10px 0;
     font-size: 20px;
 }
-.productTable{
+
+.productTable {
     display: inline-block;
     text-align: center;
 }
-.productTable .num-reduce{
+
+.productTable .num-reduce {
     text-align: center;
     cursor: pointer;
-    background:#f7f7f7;
+    background: #f7f7f7;
     border: 1px solid #e3e3e3;
-    height:20px;
+    height: 20px;
     width: 20px;
 }
-.productTable .num-input{
+
+.productTable .num-input {
     text-align: center;
     height: 18px;
     line-height: 18px;
@@ -454,7 +458,7 @@ body {
     border: 1px solid #e3e3e3;
 }
 
-.productTable .num-add{
+.productTable .num-add {
     text-align: center;
     cursor: pointer;
     background: #f7f7f7;
@@ -462,23 +466,47 @@ body {
     height: 20px;
     width: 20px;
 }
+
 .cartContainer {
     width: 1200px;
     margin-top: 10px;
 }
-.productTitle{
+
+.productTitle {
     background: #ffffff;
     border: 1px solid #ddd;
     padding: 10px;
     overflow: hidden;
 }
-.tableBottom{
+
+.tableBottom {
     background: #ffffff;
     margin-top: -5px;
-    height: 30px;
+    height: 40px;
+    display: block;
 }
-.tableBottom > .el-button{
+
+.tableBottom .table-buttonForm {
+    float: left;
+}
+
+.tableBottom .table-buttonForm .el-button {
     color: #909399;
+}
+
+.tableBottom .table-totalForm {
+    float: right;
+}
+
+.tableBottom .table-totalForm .el-button {
+    cursor: pointer;
+    background: #ff7700;
+    font: #fefefe;
+    padding: 12px 20px;
+    border-radius: 0;
+    transition: 0s;
+    height: 40px;
+    line-height: 1;
 }
 
 .footer {
