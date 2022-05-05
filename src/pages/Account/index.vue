@@ -32,7 +32,7 @@
           class="loginForm"
         >
           <el-form-item props="userName">
-            <label class="el-icon-user"></label>
+            <label class="iconfont icon-user"></label>
             <el-input
               type="text"
               v-model="loginForm.userName"
@@ -40,7 +40,7 @@
             ></el-input>
           </el-form-item>
           <el-form-item props="password">
-            <label class="el-icon-lock"></label>
+            <label class="iconfont icon-lock"></label>
             <el-input
               type="password"
               v-model="loginForm.password"
@@ -72,7 +72,7 @@
           class="regForm"
         >
           <el-form-item prop="userName">
-            <label class="el-icon-user"></label>
+            <label class="iconfont icon-user"></label>
             <el-input
               type="text"
               v-model="regForm.userName"
@@ -82,24 +82,25 @@
           </el-form-item>
 
           <el-form-item prop="mail">
-            <label class="el-icon-message"></label>
+            <label class="iconfont icon-mail"></label>
             <el-input
               type="text"
               v-model="regForm.mail"
               auto-complete="off"
               placeholder="请输入邮箱"
             ></el-input>
-            <el-button>发送验证码</el-button>
           </el-form-item>
 
           <el-form-item prop="canvas">
-            <label class="el-icon-edit"></label>
+            <label class="iconfont icon-captcha"></label>
             <el-input
               type="text"
               v-model="regForm.canvas"
               auto-complete="off"
               placeholder="请输入验证码"
+              class="captcha"
             ></el-input>
+            <el-button>发送验证码</el-button>
             <!-- <input
                 type="button"
                 @click="createCode"
@@ -109,7 +110,7 @@
               /> -->
           </el-form-item>
           <el-form-item prop="password">
-            <label class="el-icon-lock"></label>
+            <label class="iconfont icon-lock"></label>
             <el-input
               type="password"
               v-model="regForm.password"
@@ -118,7 +119,7 @@
             ></el-input>
           </el-form-item>
           <el-form-item prop="checkPassword">
-            <label class="el-icon-lock"></label>
+            <label class="iconfont icon-lock-fill"></label>
             <el-input
               type="password"
               v-model="regForm.checkPassword"
