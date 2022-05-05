@@ -459,4 +459,9 @@ body{
 /*个人中心*/
 .personal {
     display: flex;
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+    left: 360px;
+    background-color: #333;
 }
