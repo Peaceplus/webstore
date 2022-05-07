@@ -65,13 +65,22 @@
         </ul>
       </div>
       <div class="recommend">
-        <div class="image" v-for="(item, index) in imList" :key="index">
+        <div class="image1" v-for="(item, index) in imList1" :key="index">
           <img :src="require('@/assets/' + item)" />
         </div>
-        <div class="intro" v-for="i in inList" :key="i">
+        <div class="intro1" v-for="i in inList1" :key="i">
           <label>{{ i }}</label>
         </div>
-        <div class="price" v-for="p in prList" :key="p">
+        <div class="price1" v-for="p in prList1" :key="p">
+          <label>{{ p }}</label>
+        </div>
+        <div class="image2" v-for="(item, index) in imList2" :key="index">
+          <img :src="require('@/assets/' + item)" />
+        </div>
+        <div class="intro2" v-for="i in inList2" :key="i">
+          <label>{{ i }}</label>
+        </div>
+        <div class="price2" v-for="p in prList2" :key="p">
           <label>{{ p }}</label>
         </div>
       </div>
@@ -86,14 +95,22 @@ export default {
 
   data: () => ({
     viewList: ["images/1.png", "images/2.png", "images/3.png"],
-    imList: ["images/4.png", "images/5.png", "images/6.png", "images/7.png"],
-    inList: [
+    imList1: ["images/4.png", "images/5.png", "images/6.png", "images/7.png"],
+    inList1: [
       "LAVA智能手机",
       "松下G95/G90相机",
       "杰克丹尼威士忌",
       "ROG玩家国度笔记本电脑",
     ],
-    prList: ["¥ 2999", "¥ 5999", "¥ 599", "¥ 12999"],
+    prList1: ["¥ 2999", "¥ 5999", "¥ 599", "¥ 12999"],
+    imList2: ["images/4.png", "images/5.png", "images/6.png", "images/7.png"],
+    inList2: [
+      "LAVA智能手机",
+      "松下G95/G90相机",
+      "杰克丹尼威士忌",
+      "ROG玩家国度笔记本电脑",
+    ],
+    prList2: ["¥ 2999", "¥ 5999", "¥ 599", "¥ 12999"],
     timer: 0,
     interrupt: null,
   }),

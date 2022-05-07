@@ -235,7 +235,8 @@ body {
 .outer {
     background: #fff;
     width: 1200px;
-    height: 800px;
+    min-height: 800px;
+    height: auto;
     margin: 0 auto;
     border-radius: 18px 18px 0 0;
     position: relative;
@@ -359,26 +360,42 @@ body {
 .home-container .recommend {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px 20px 20px;
+    grid-template-rows: 200px 20px 20px 200px 20px 20px;
     position: absolute;
     width: 980px;
-    height: 200px;
+    height: 480px;
     left: 220px;
     top: 320px;
 }
 
-.home-container .recommend .image {
+.home-container .recommend .image1 {
     cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.home-container .recommend .intro {
+.home-container .recommend .intro1 {
     text-align: center;
-    grid-row: 2;
 }
 
-.home-container .recommend .price {
+.home-container .recommend .price1 {
     text-align: center;
-    grid-row: 3;
+    color: crimson;
+}
+
+.home-container .recommend .image2 {
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.home-container .recommend .intro2 {
+    text-align: center;
+}
+
+.home-container .recommend .price2 {
+    text-align: center;
     color: crimson;
 }
 
