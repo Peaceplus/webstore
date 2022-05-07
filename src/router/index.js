@@ -10,6 +10,7 @@ import Account from '@/pages/Account';
 import Info from '@/pages/Info';
 import Cart from '@/pages/Cart';
 import Category from '@/pages/Category';
+import Pay from '@/pages/Pay';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
@@ -109,6 +110,18 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+      }
+    },
+    {
+      name: "pay",
+      path: '/pay',
+      title: "支付",
+      component: Pay,
+      meta: {
+        login: true,
+        show_header: true,
+        show_logo: true,
+        show_search: false
       }
     },
     //重定向，项目运行时，访问/，定向至首页

@@ -71,7 +71,7 @@
           <span style="color: #e94826; margin-right: 20px"
             >￥{{ getTotal.totalPrice }}</span
           >
-          <el-button><span style="color: #fefefe">结算</span></el-button>
+          <el-button @click="goPay"><span style="color: #fefefe">结算</span></el-button>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ export default {
       productData: [
         {
           checked: false,
-          product: "src/assets/images/5.png",
+          product: require('@/assets/images/5.png'),
           name: "佳能相机",
           info: "佳能公司最早的产品之一",
           price: "5000.00",
@@ -94,7 +94,7 @@ export default {
         },
         {
           checked: false,
-          product: "src/assets/images/6.png",
+          product: require('@/assets/images/6.png'),
           name: "威士忌",
           info: "来自前苏联的威士忌",
           price: "2000.00",
@@ -102,7 +102,7 @@ export default {
         },
         {
           checked: false,
-          product: "src/assets/images/7.png",
+          product: require('@/assets/images/7.png'),
           name: "ROG 笔记本电脑",
           info: "ROG出厂的笔记本电脑",
           price: "7299.00",
@@ -146,6 +146,9 @@ export default {
     goShopping() {
       this.$router.push("/category");
     },
+    goPay(){
+      this.$router.push("/pay");
+    }
   },
 };
 </script>

@@ -457,6 +457,9 @@ body {
     text-align: center;
 }
 
+.productTable .el-image{
+    zoom: .4;
+}
 .productTable .num-reduce {
     text-align: center;
     cursor: pointer;
@@ -524,6 +527,20 @@ body {
     transition: 0s;
     height: 40px;
     line-height: 1;
+}
+
+.payContainer{
+    width: 1200px;
+    min-height: 400px;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 18px 18px 0 0;
+    position: relative;
+}
+.payContainer .payHeader{
+    width: 1200px;
+    min-height: 400px;;
+    height: auto;;
 }
 
 /*个人中心*/
