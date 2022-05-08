@@ -26,6 +26,38 @@
             </a>
           </li>
         </ul>
+        <ul>
+          <li class="category-item">
+            <a name="clothes">
+              服装内饰
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="category-item">
+            <a name="bookmedia">
+              图书影像
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="category-item">
+            <a name="toiletries">
+              洗护用品
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="category-item">
+            <a name="outdoor">
+              户外用品
+              <em class="iconfont icon-right-notfill"></em>
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="carouseldiagram">
         <a>

@@ -2,46 +2,86 @@
   <div class="payContainer">
     <div class="payHeader">
       <el-page-header @back="goBack" content="支付页面"></el-page-header>
-      <h3 style="margin-top:20px;">选择收货地址</h3>
-      <el-table
-        ref="addressTable"
-        :data="addressData"
-        style="width: 100%;margin-top: 20px"
-      >
-        <el-table-column label="选择" align="center" width="50">
-          <template slot-scope="scope">
-            <el-radio :label="scope.$index" v-model="radio" @change.native="getCurrentRow(scope.row)">&nbsp;</el-radio>
-          </template>
-        </el-table-column>
-        <el-table-column property="name" align="center" label="收件人" width="100">
-          <template slot-scope="scope">
-            {{ scope.row.name }}
-          </template>
-        </el-table-column>
-        <el-table-column property="phoneNumber" label="联系方式" width="150">
-          <template slot-scope="scope">
-            {{ scope.row.phoneNumber }}
-          </template>
-        </el-table-column>
-        <el-table-column property="address" label="地址" width="600">
-          <template slot-scope="scope">
-            {{ scope.row.address }}
-          </template>
-        </el-table-column>
-        <el-table-column label="操作">
-          <template slot-scope="scope">
-            <el-button class="iconfont icon-delete" type="text" @click="handleDelete(scope.$index)" style="color:#ff6700;font-size:14px">
-              删除
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-      <div class="tableBottom">
-          <div class="table-buttonForm">
-              <el-button type="text" class="iconfont icon-edit-square" @click="handleAdd" disabled>新增收货地址(未完成)</el-button>
-          </div>
+    </div>
+    <h3 style="margin-top: 20px">选择收货地址</h3>
+    <el-table
+      ref="addressTable"
+      :data="addressData"
+      style="width: 100%; margin-top: 20px"
+    >
+      <el-table-column label="选择" align="center" width="50">
+        <template slot-scope="scope">
+          <el-radio
+            :label="scope.$index"
+            v-model="radio"
+            @change.native="getCurrentRow(scope.row)"
+            >&nbsp;</el-radio
+          >
+        </template>
+      </el-table-column>
+      <el-table-column property="name" align="center" label="收件人" width="100">
+        <template slot-scope="scope">
+          {{ scope.row.name }}
+        </template>
+      </el-table-column>
+      <el-table-column property="phoneNumber" label="联系方式" width="150">
+        <template slot-scope="scope">
+          {{ scope.row.phoneNumber }}
+        </template>
+      </el-table-column>
+      <el-table-column property="address" label="地址" width="600">
+        <template slot-scope="scope">
+          {{ scope.row.address }}
+        </template>
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+            class="iconfont icon-delete"
+            type="text"
+            @click="handleDelete(scope.$index)"
+            style="color: #ff6700; font-size: 14px"
+          >
+            删除
+          </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <div class="tableBottom">
+      <div class="table-buttonForm">
+        <el-button
+          type="text"
+          class="iconfont icon-edit-square"
+          @click="handleAdd"
+          disabled
+          >新增收货地址(未完成)</el-button
+        >
       </div>
-      <h3  style="margin: 20px 0 0">选择付款方式</h3>
+    </div>
+    <h3 style="margin: 20px 0 0">选择付款方式</h3>
+    <div class="payMode">
+      <div class="payModeForm">
+        <el-button>
+          <svg
+            class="iconfont"
+            aria-hidden="true"
+            style="width: 20px; height: 20px; margin: "
+          >
+            <use xlink:href="#icon-alipay1"></use>
+          </svg>
+          支付宝支付
+        </el-button>
+        <el-button>
+          <svg
+            class="iconfont"
+            aria-hidden="true"
+            style="width:20px;height:20px;"
+          >
+            <use xlink:href="#icon-WeChatpay"></use>
+          </svg>
+          微信支付
+        </el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -52,8 +92,8 @@ export default {
 
   data() {
     return {
-      templateSelection:{},
-      radio: '',
+      templateSelection: {},
+      radio: "",
       addressData: [
         {
           name: "张三",
@@ -82,10 +122,10 @@ export default {
     handleDelete(index) {
       this.addressData.splice(index, 1);
     },
-    getCurrentRow(row){
+    getCurrentRow(row) {
       this.templateSelection = row;
-      console.log(this.templateSelection)
-    }
+      console.log(this.templateSelection);
+    },
   },
 };
 </script>

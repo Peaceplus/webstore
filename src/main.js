@@ -3,11 +3,15 @@ import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import "@/assets/icon-font/iconfont.css"
+import "@/assets/icon-font/iconfont"
 import VueParticles from 'vue-particles'
-//三级联动组件--全局组件
+//全局组件
 import HomeItem from '@/pages/Home/HomeItem';
 //参数：全局组件的名字，组件名
 Vue.component(HomeItem.name, HomeItem);
+// 测试
+import { reqCategoryList } from './api';
+reqCategoryList();
 //引入路由
 import router from '@/router';
 

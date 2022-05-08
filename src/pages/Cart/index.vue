@@ -41,7 +41,7 @@
         </el-table-column>
         <el-table-column label="总计(元)" width="180">
           <template slot-scope="scope">
-            ￥{{ scope.row.price * scope.row.number }}
+            ￥{{ (scope.row.price * scope.row.number).toFixed(2) }}
           </template>
         </el-table-column>
         <el-table-column label="操作">
@@ -89,7 +89,7 @@ export default {
           product: require('@/assets/images/5.png'),
           name: "佳能相机",
           info: "佳能公司最早的产品之一",
-          price: "5000.00",
+          price: "5000",
           number: "1",
         },
         {
@@ -97,7 +97,7 @@ export default {
           product: require('@/assets/images/6.png'),
           name: "威士忌",
           info: "来自前苏联的威士忌",
-          price: "2000.00",
+          price: "2000",
           number: "1",
         },
         {
@@ -105,7 +105,7 @@ export default {
           product: require('@/assets/images/7.png'),
           name: "ROG 笔记本电脑",
           info: "ROG出厂的笔记本电脑",
-          price: "7299.00",
+          price: "7299",
           number: "1",
         },
       ],
@@ -127,7 +127,7 @@ export default {
         // 被选中的物品数量就是proList.length
         totalNum: productData.length,
         // 总价就是totalPrice
-        totalPrice: totalPrice,
+        totalPrice: totalPrice.toFixed(2),
       };
     },
   },

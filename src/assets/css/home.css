@@ -252,6 +252,7 @@ body {
 .home-container .category-list {
     position: absolute;
     display: inline-block;
+    height: 320px;
     background: rgb(119, 102, 102, .6);
 }
 
@@ -529,6 +530,7 @@ body {
     line-height: 1;
 }
 
+/* 支付页 */
 .payContainer{
     width: 1200px;
     min-height: 400px;
@@ -539,8 +541,19 @@ body {
 }
 .payContainer .payHeader{
     width: 1200px;
-    min-height: 400px;;
-    height: auto;;
+    height: auto;
+}
+.payContainer .payMode{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+}
+.payContainer .payMode .payModeForm .el-button{
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 12px;
 }
 
 /*个人中心*/
