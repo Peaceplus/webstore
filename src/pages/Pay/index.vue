@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="payPrice">
-      支付金额：￥<span>{{ payPrice }}</span>
+      支付金额：￥<em>{{ payPrice }}</em>
     </div>
     <div class="payBottom">
       <el-button type="primary" class="iconfont icon-wallet" @click="onSubmit">立即支付</el-button>

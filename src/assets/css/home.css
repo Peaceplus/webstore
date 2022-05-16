@@ -17,7 +17,7 @@ body {
 
 }
 
-/* 顶部容器 */
+/* 顶部组件 */
 .header>.top {
     background-color: rgb(39, 40, 43);
     height: 40px;
@@ -25,7 +25,7 @@ body {
 }
 
 .header>.top .container {
-    width: 1200px;
+    width: 1140px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -101,16 +101,17 @@ body {
 }
 
 .topContainer {
-    width: 1200px;
+    width: 1140px;
     margin: 0 auto;
     background-color: #fefefe;
     overflow: hidden;
     position: relative;
 }
 
-.topContainer .el-menu .el-menu-item{
+.topContainer .el-menu .el-menu-item {
     margin-left: 10px;
 }
+
 .topContainer>.logoArea {
     float: left;
 }
@@ -161,7 +162,7 @@ body {
     cursor: pointer;
 }
 
-/* 登录 */
+/* 登录注册页 */
 .login-bg {
     position: absolute;
     width: 100%;
@@ -234,13 +235,12 @@ body {
     line-height: 36px;
 }
 
-/* 分类 */
+/* 首页 */
 .outer {
     width: 100%;
     min-height: 1000px;
     height: auto;
     margin: 0 auto;
-    border-radius: 18px 18px 0 0;
     position: relative;
 }
 
@@ -263,7 +263,7 @@ body {
     cursor: pointer;
     width: 100%;
     height: 400px;
-    background-repeat:repeat-x;
+    background-repeat: repeat-x;
     background-position: 50%;
     background-size: auto 100%;
 }
@@ -391,19 +391,227 @@ body {
 }
 
 /* 验证码 */
-.verification {
+/* .verification {
     width: 100px;
     letter-spacing: 5px;
     margin-left: 50px;
     height: 40px;
     transform: translate(-15px, 0);
+} */
+
+/* 商品详情页 */
+.product {
+    width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e8e8e8;
 }
 
+.product .productContainer {
+    width: 1140px;
+    height: 800px auto;
+    margin: 0 auto;
+}
 
+.product .productContainer .imgBox {
+    margin-left: 10px;
+    width: 400px;
+    height: 500px;
+    float: left;
+}
+
+.product .productContainer .imgBox .top {
+    margin-top: 10px;
+}
+
+.product .productContainer .imgBox .top .img {
+    width: 400px;
+    height: 400px;
+}
+
+.product .productContainer .imgBox .bottom {
+    margin-top: 10px;
+    width: 400px;
+    height: 70px;
+}
+
+.product .productContainer .imgBox .bottom .img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.product .productContainer .imgBox .bottom .img:hover {
+    border: 2px solid #ff6700;
+}
+
+.product .productContainer .rightBox {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 520px;
+    height: 100%;
+    display: block;
+}
+
+.product .productContainer .rightBox .title h3 {
+    margin-top: 10px;
+}
+
+.product .productContainer .rightBox .meta {
+    background-color: #fff2e8;
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: left;
+    color: #3c3c3c;
+}
+
+.product .productContainer .rightBox .meta .type {
+    display: inline;
+    float: left;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    color: #6c6c6c;
+    font-size: 12px;
+}
+
+.product .productContainer .rightBox .meta .originPrice {
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+.product .productContainer .rightBox .meta .price {
+    margin-bottom: 10px;
+}
+
+.product .productContainer .rightBox .meta .price span {
+    height: 26px;
+    line-height: 26px;
+}
+
+.product .productContainer .rightBox .meta .price em {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff4400;
+    line-height: 26px;
+}
+
+.product .productContainer .rightBox .meta .style {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+}
+
+.product .productContainer .rightBox .meta .style .img {
+    height: 36px;
+    width: 36px;
+    border: 2px solid #dcdcdc;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.product .productContainer .rightBox .meta .style .img:hover {
+    border: 2px solid #ff4400;
+}
+
+.product .productContainer .rightBox .meta .size {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+.product .productContainer .rightBox .meta .size .checkSize {
+    width: auto;
+    height: 28px;
+    padding: 3px 6px;
+    border: 2px solid #dcdcdc;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.product .productContainer .rightBox .meta .size .checkSize:hover {
+    border: 2px solid #ff4400;
+}
+
+.product .productContainer .rightBox .meta .number {
+    height: 26px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+.product .productContainer .rightBox .meta .number ul,
+li {
+    list-style: none;
+}
+
+.product .productContainer .rightBox .meta .number li {
+    float: left;
+}
+
+.product .productContainer .rightBox .meta .number .num-reduce {
+    height: 23px;
+    line-height: 23px;
+    width: 23px;
+}
+
+.product .productContainer .rightBox .meta .number .num-input {
+    text-align: center;
+    width: 40px;
+    font-size: 16px;
+}
+
+.product .productContainer .rightBox .meta .number .num-add {
+    height: 23px;
+    line-height: 23px;
+    width: 23px;
+}
+
+.product .productContainer .rightBox .action {
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.product .productContainer .rightBox .action .buy {
+    cursor: pointer;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    border-color: #F0CAB6;
+    background-color: #ffe4d0;
+    color: #e5511d;
+    text-align: center;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+}
+
+.product .productContainer .rightBox .action .addCart {
+    cursor: pointer;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    border-color: #f40;
+    color: #fff;
+    background-color: #f40;
+    text-align: center;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+}
 
 /* 购物车 */
 .cart {
-    width: 1200px;
+    width: 1140px;
     margin: 0 auto;
 }
 
@@ -413,7 +621,7 @@ body {
 }
 
 .cartContainer {
-    width: 1200px;
+    width: 1140px;
     min-height: 400px;
     height: auto;
     margin: 10px auto;
@@ -421,9 +629,10 @@ body {
     position: relative;
 }
 
-.cartContainer .el-image{
+.cartContainer .el-image {
     zoom: .4;
 }
+
 .cartContainer .num-reduce {
     text-align: center;
     cursor: pointer;
@@ -452,7 +661,7 @@ body {
 }
 
 .cartContainer {
-    width: 1200px;
+    width: 1140px;
     margin-top: 10px;
 }
 
@@ -493,59 +702,68 @@ body {
 }
 
 /* 支付页 */
-.payContainer{
-    width: 1200px;
+.payContainer {
+    width: 1140px;
     min-height: 400px;
     height: auto;
     margin: 10px auto;
     border-radius: 18px 18px 0 0;
     position: relative;
 }
-.payContainer .payHeader{
-    width: 1200px;
+
+.payContainer .payHeader {
+    width: 1140px;
     height: auto;
 }
-.payContainer .payMode{
+
+.payContainer .payMode {
     margin-top: 20px;
     width: 257px;
     height: auto;
     background-color: #ffffff;
 }
-.payContainer .payMode .payModeForm .el-button{
+
+.payContainer .payMode .payModeForm .el-button {
     width: 150px;
     height: 50px;
     line-height: 50px;
     border-radius: 12px;
 }
-.payContainer .payPrice{
+
+.payContainer .payPrice {
     margin-top: 30px;
 }
-.payContainer .payPrice span{
+
+.payContainer .payPrice em {
     color: #e94826;
     font-size: 26px;
 }
-.payContainer .payBottom{
+
+.payContainer .payBottom {
     margin-top: 40px;
     text-align: center;
 }
-.payContainer .payBottom .el-button{
+
+.payContainer .payBottom .el-button {
     border-radius: 18px;
 }
-.payContainer .time{
+
+.payContainer .time {
     text-align: center;
     color: #e94826;
 }
+
 /*个人中心*/
 .personal {
     display: flex;
-    width: 1200px;
+    width: 1140px;
     height: 800px;
     position: absolute;
     left: 360px;
     background-color: #333;
 }
 
-.footer{
+.footer {
     margin-top: 100px;
     width: 100%;
     height: 400px;
@@ -554,36 +772,43 @@ body {
     color: #fff;
     overflow: hidden;
 }
-.footer .box{
-    width: 1200px;
+
+.footer .box {
+    width: 1140px;
     height: 100%;
     margin: 0 auto;
 }
-.footer .box .top{
+
+.footer .box .top {
     margin-top: 100px;
     display: flex;
     margin-bottom: 40px;
     text-align: center;
 }
-.footer .box .top .leftBox{
+
+.footer .box .top .leftBox {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
-.footer .box .top .leftBox .title{
+
+.footer .box .top .leftBox .title {
     font-size: 16px;
     margin-bottom: 30px;
 }
-.footer .box .top .leftBox .number{
+
+.footer .box .top .leftBox .number {
     font-size: 40px;
     margin-bottom: 10px;
     font-weight: 500;
 }
-.footer .box .top .leftBox .time{
+
+.footer .box .top .leftBox .time {
     font-size: 18px;
     margin-bottom: 30px;
 }
-.footer .box .top .leftBox .consult{
+
+.footer .box .top .leftBox .consult {
     cursor: pointer;
     margin: 0 auto;
     width: 220px;
@@ -593,41 +818,43 @@ body {
     opacity: .6;
 }
 
-.footer .box .top .centerBox{
+.footer .box .top .centerBox {
     flex: 1;
     border-left: 2px solid #4d4d4d;
     border-right: 2px solid #4d4d4d;
 }
 
-.footer .box .top .centerBox p{
+.footer .box .top .centerBox p {
     font-size: 16px;
     line-height: 25px;
 }
 
-.footer .box .top .centerBox .title{
+.footer .box .top .centerBox .title {
     margin-bottom: 30px;
 }
 
-.footer .box .top .rightBox{
+.footer .box .top .rightBox {
     flex: 1;
     display: flex;
 }
 
-.footer .box .top .rightBox .aboutUs{
+.footer .box .top .rightBox .aboutUs {
     flex: 1;
 }
 
-.footer .box .top .rightBox .aboutUs p{
+.footer .box .top .rightBox .aboutUs p {
     margin-bottom: 20px;
 }
-.footer .box .top .rightBox .aboutUs .title{
+
+.footer .box .top .rightBox .aboutUs .title {
     margin-bottom: 30px;
 }
-.footer .box .top .rightBox .aboutUs .cur-poi{
+
+.footer .box .top .rightBox .aboutUs .cur-poi {
     cursor: pointer;
 }
 
-.footer .box .bottom{
+.footer .box .bottom {
     text-align: center;
     font-size: 12px;
     line-height: 24px;

@@ -39,7 +39,7 @@
         </ul>
       </div>
       <div class="recommend">
-          <div class="image1" v-for="(item, index) in imList1" :key="index">
+          <div class="image1" @click="goProduct" v-for="(item, index) in imList1" :key="index">
             <img :src="require('@/assets/' + item)" />
           </div>
           <div class="intro1" v-for="i in inList1" :key="i">
@@ -97,7 +97,9 @@ export default {
   methods: {
     goCategory() {
       this.$router.push("/category");
-      return this.a.name;
+    },
+    goProduct(){
+      this.$router.push("/product");
     },
     change() {
       this.interrupt = setInterval(() => {
