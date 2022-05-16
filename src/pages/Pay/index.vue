@@ -3,6 +3,8 @@
     <div class="payHeader">
       <el-page-header @back="goBack" content="支付页面"></el-page-header>
     </div>
+    <h3 style="margin-top: 20px">订单详情</h3>
+
     <h3 style="margin-top: 20px">选择收货地址</h3>
     <el-table
       ref="addressTable"
@@ -58,30 +60,31 @@
         >
       </div>
     </div>
-    <h3 style="margin: 20px 0 0">选择付款方式</h3>
+    <h3 style="margin: 20px 0 0">支付方式</h3>
     <div class="payMode">
       <div class="payModeForm">
-        <el-button>
-          <svg
-            class="iconfont"
-            aria-hidden="true"
-            style="width: 20px; height: 20px; margin: "
-          >
-            <use xlink:href="#icon-alipay1"></use>
-          </svg>
-          支付宝支付
-        </el-button>
-        <el-button>
-          <svg
-            class="iconfont"
-            aria-hidden="true"
-            style="width:20px;height:20px;"
-          >
-            <use xlink:href="#icon-WeChatpay"></use>
-          </svg>
-          微信支付
-        </el-button>
+        <el-radio-group v-model="payRadio">
+          <el-radio-button label="支付宝支付">
+            <svg class="iconfont" aria-hidden="true" style="width: 20px; height: 20px">
+              <use xlink:href="#icon-alipay"></use>
+            </svg>
+            支付宝支付
+          </el-radio-button>
+          <el-radio-button label="微信支付">
+            <svg class="iconfont" aria-hidden="true" style="width: 20px; height: 20px">
+              <use xlink:href="#icon-wechatpay"></use>
+            </svg>
+            微信支付
+          </el-radio-button>
+        </el-radio-group>
       </div>
+    </div>
+    <div class="payPrice">
+      支付金额：￥<span>{{ payPrice }}</span>
+    </div>
+    <div class="payBottom">
+      <el-button type="primary" class="iconfont icon-wallet" @click="onSubmit">立即支付</el-button>
+      <el-button class="iconfont icon-rollback" @click="goHome">返回首页</el-button>
     </div>
   </div>
 </template>
@@ -107,14 +110,20 @@ export default {
         },
       ],
       currentRow: null,
+      payRadio: "支付宝支付",
+      payPrice: "0.01",
     };
   },
 
-  mounted() {},
+  mounted() {
+  },
 
   methods: {
     goBack() {
       this.$router.push("/cart");
+    },
+    goHome(){
+      this.$router.push("/home");
     },
     handleAdd(index) {
       this.addressData.splice(index, 0, 1);
@@ -123,9 +132,17 @@ export default {
       this.addressData.splice(index, 1);
     },
     getCurrentRow(row) {
-      this.templateSelection = row;
-      console.log(this.templateSelection);
+      this.templateSelection = row; //获取选中行的所有参数，获取指定参数使用' .xxx '
     },
+    onSubmit(){
+      console.log(this.templateSelection)
+      console.log(this.payRadio)
+      if(this.payRadio == "支付宝支付"){
+        //支付宝支付
+      }else if(this.payRadio == "微信支付"){
+        //微信支付
+      }
+    }
   },
 };
 </script>

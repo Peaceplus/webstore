@@ -50,6 +50,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       },
     },
     {
@@ -62,6 +63,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       },
     },
     {
@@ -74,6 +76,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
+        show_footer:false
       },
     },
     {
@@ -86,6 +89,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
+        show_footer:false
       },
     },
     {
@@ -98,6 +102,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       }
     },
     {
@@ -110,6 +115,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       }
     },
     {
@@ -121,7 +127,8 @@ export default new VueRouter({
         login: true,
         show_header: true,
         show_logo: true,
-        show_search: false
+        show_search: false,
+        show_footer:true
       }
     },
     //重定向，项目运行时，访问/，定向至首页

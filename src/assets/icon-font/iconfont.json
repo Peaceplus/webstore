@@ -6,18 +6,18 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "3507065",
-      "name": "alipay",
-      "font_class": "alipay1",
-      "unicode": "e600",
-      "unicode_decimal": 58880
+      "icon_id": "12498147",
+      "name": "微信支付",
+      "font_class": "wechatpay",
+      "unicode": "e601",
+      "unicode_decimal": 58881
     },
     {
-      "icon_id": "12857098",
-      "name": "WeChatpay",
-      "font_class": "WeChatpay",
-      "unicode": "e66e",
-      "unicode_decimal": 58990
+      "icon_id": "3507065",
+      "name": "alipay",
+      "font_class": "alipay",
+      "unicode": "e600",
+      "unicode_decimal": 58880
     },
     {
       "icon_id": "2149899",
@@ -3854,13 +3854,6 @@
       "font_class": "table",
       "unicode": "e833",
       "unicode_decimal": 59443
-    },
-    {
-      "icon_id": "4936955",
-      "name": "alipay",
-      "font_class": "alipay",
-      "unicode": "e933",
-      "unicode_decimal": 59699
     },
     {
       "icon_id": "4766920",

@@ -1,64 +1,6 @@
 <template>
   <div class="outer">
     <div class="home-container">
-      <div class="category-list">
-        <ul>
-          <li class="category-item">
-            <a @click="goCategory" name="dailyUse">
-              生活用品
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a @click="goCategory" name="digital">
-              数码产品
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a @click="goCategory" name="computer">
-              电脑及配件
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a name="clothes">
-              服装内饰
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a name="bookmedia">
-              图书影像
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a name="toiletries">
-              洗护用品
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="category-item">
-            <a name="outdoor">
-              户外用品
-              <em class="iconfont icon-right-notfill"></em>
-            </a>
-          </li>
-        </ul>
-      </div>
       <div class="carouseldiagram">
         <a>
           <img
@@ -97,24 +39,25 @@
         </ul>
       </div>
       <div class="recommend">
-        <div class="image1" v-for="(item, index) in imList1" :key="index">
-          <img :src="require('@/assets/' + item)" />
-        </div>
-        <div class="intro1" v-for="i in inList1" :key="i">
-          <label>{{ i }}</label>
-        </div>
-        <div class="price1" v-for="p in prList1" :key="p">
-          <label>{{ p }}</label>
-        </div>
-        <div class="image2" v-for="(item, index) in imList2" :key="index">
-          <img :src="require('@/assets/' + item)" />
-        </div>
-        <div class="intro2" v-for="i in inList2" :key="i">
-          <label>{{ i }}</label>
-        </div>
-        <div class="price2" v-for="p in prList2" :key="p">
-          <label>{{ p }}</label>
-        </div>
+          <div class="image1" v-for="(item, index) in imList1" :key="index">
+            <img :src="require('@/assets/' + item)" />
+          </div>
+          <div class="intro1" v-for="i in inList1" :key="i">
+            <label>{{ i }}</label>
+          </div>
+          <div class="price1" v-for="p in prList1" :key="p">
+            <label>{{ p }}</label>
+          </div>
+
+          <div class="image2" v-for="(item, index) in imList2" :key="index">
+            <img :src="require('@/assets/' + item)" />
+          </div>
+          <div class="intro2" v-for="i in inList2" :key="i">
+            <label>{{ i }}</label>
+          </div>
+          <div class="price2" v-for="p in prList2" :key="p">
+            <label>{{ p }}</label>
+          </div>
       </div>
     </div>
   </div>
