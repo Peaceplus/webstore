@@ -550,5 +550,13 @@ body {
     height: 800px;
     position: absolute;
     left: 360px;
-    background-color: #333;
+}
+.personal .personalContainer{
+   min-width: 1200px;
+}
+.personal .avatar{
+    position: absolute;
+    left: 550px;
+    bottom: 70px;
+    cursor: pointer;
 }
