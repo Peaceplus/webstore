@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3352969 */
-  src: url('iconfont.woff2?t=1650715574941') format('woff2'),
-       url('iconfont.woff?t=1650715574941') format('woff'),
-       url('iconfont.ttf?t=1650715574941') format('truetype');
+  src: url('iconfont.woff2?t=1652143716451') format('woff2'),
+       url('iconfont.woff?t=1652143716451') format('woff'),
+       url('iconfont.ttf?t=1652143716451') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,30 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechatpay:before {
+  content: "\e601";
+}
+
+.icon-alipay:before {
+  content: "\e600";
+}
+
+.icon-captcha:before {
+  content: "\e624";
+}
+
+.icon-cart:before {
+  content: "\e6e6";
+}
+
+.icon-right-notfill:before {
+  content: "\e9d6";
+}
+
+.icon-right-fill:before {
+  content: "\e9d5";
 }
 
 .icon-share:before {
@@ -2187,10 +2211,6 @@
 
 .icon-table:before {
   content: "\e833";
-}
-
-.icon-alipay:before {
-  content: "\e933";
 }
 
 .icon-idcard:before {

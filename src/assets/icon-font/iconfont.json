@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "12498147",
+      "name": "微信支付",
+      "font_class": "wechatpay",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "3507065",
+      "name": "alipay",
+      "font_class": "alipay",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2149899",
+      "name": "captcha",
+      "font_class": "captcha",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "12865651",
+      "name": "cart",
+      "font_class": "cart",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "29233256",
+      "name": "right",
+      "font_class": "right-notfill",
+      "unicode": "e9d6",
+      "unicode_decimal": 59862
+    },
+    {
+      "icon_id": "29233151",
+      "name": "right",
+      "font_class": "right-fill",
+      "unicode": "e9d5",
+      "unicode_decimal": 59861
+    },
+    {
       "icon_id": "4766985",
       "name": "share",
       "font_class": "share",
@@ -3812,13 +3854,6 @@
       "font_class": "table",
       "unicode": "e833",
       "unicode_decimal": 59443
-    },
-    {
-      "icon_id": "4936955",
-      "name": "alipay",
-      "font_class": "alipay",
-      "unicode": "e933",
-      "unicode_decimal": 59699
     },
     {
       "icon_id": "4766920",

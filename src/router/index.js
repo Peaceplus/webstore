@@ -8,6 +8,7 @@ import Home from '@/pages/Home';
 import Search from '@/pages/Search';
 import Account from '@/pages/Account';
 import Info from '@/pages/Info';
+import Product from '@/pages/Product';
 import Cart from '@/pages/Cart';
 import Category from '@/pages/Category';
 import Pay from '@/pages/Pay';
@@ -50,6 +51,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       },
     },
     {
@@ -62,6 +64,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       },
     },
     {
@@ -74,6 +77,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
+        show_footer:false
       },
     },
     {
@@ -86,7 +90,21 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
+        show_footer:false
       },
+    },
+    {
+      name: "product",
+      path: "/product",
+      title: "商品信息",
+      component: Product,
+      meta: {
+        login: false,
+        show_header: true,
+        show_logo: false,
+        show_search: true,
+        show_footer:true
+      }
     },
     {
       name: "cart",
@@ -98,6 +116,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       }
     },
     {
@@ -110,6 +129,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
+        show_footer:true
       }
     },
     {
@@ -121,7 +141,8 @@ export default new VueRouter({
         login: true,
         show_header: true,
         show_logo: true,
-        show_search: false
+        show_search: false,
+        show_footer:true
       }
     },
     //重定向，项目运行时，访问/，定向至首页

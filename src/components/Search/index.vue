@@ -1,33 +1,37 @@
 <template>
-<div class="navContainer">
-  <div class="topContainer">
-    <div class="logoArea">
-      <router-link class="logoImg" to="/home">
-        <img src="../../assets/images/logo.png" alt="logo" />
-      </router-link>
+  <div class="navContainer">
+    <div class="topContainer">
+      <div class="logoArea">
+        <router-link class="logoImg" to="/home">
+          <img src="../../assets/images/logo.png" alt="logo" />
+        </router-link>
+      </div>
+      <div class="searchArea">
+        <form class="searchForm">
+          <input
+            type="text"
+            id="autocomplete"
+            autocomplete="off"
+            v-model="keyword"
+            placeholder="快来搜索你感兴趣的内容吧"
+          />
+          <el-button @click="goSearch" class="iconfont icon-search"></el-button>
+        </form>
+      </div>
+      <el-menu
+        class="topNav"
+        :default-active="activeIndex"
+        mode="horizontal"
+        @select="handleSelect"
+      >
+        <el-menu-item index="1" @click="goHome">首页</el-menu-item>
+        <el-menu-item index="2">服饰</el-menu-item>
+        <el-menu-item index="3">食品</el-menu-item>
+        <el-menu-item index="4">图书影像</el-menu-item>
+        <el-menu-item index="5">运动户外</el-menu-item>
+        <el-menu-item index="6">数码</el-menu-item>
+      </el-menu>
     </div>
-    <div class="searchArea">
-      <form class="searchForm">
-        <input
-          type="text"
-          id="autocomplete"
-          autocomplete="off"
-          v-model="keyword"
-          placeholder="快来搜索你感兴趣的内容吧"
-        />
-        <el-button @click="goSearch" class="iconfont icon-search"></el-button>
-      </form>
-    </div>
-    <el-menu class="topNav" :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1" @click="goHome">首页</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">数码产品</template>
-        <el-menu-item index="2-1">手机</el-menu-item>
-        <el-menu-item index="2-2">相机</el-menu-item>
-        <el-menu-item index="2-3">电脑</el-menu-item>
-      </el-submenu>
-    </el-menu>
-  </div>
   </div>
 </template>
 
@@ -47,8 +51,8 @@ export default {
 
   methods: {
     //搜索按钮的回调函数：向search路由进行跳转
-    goHome(){
-      this.$router.push('/home')
+    goHome() {
+      this.$router.push("/home");
     },
     goSearch() {
       //路由传参：
