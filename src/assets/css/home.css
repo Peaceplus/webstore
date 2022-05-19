@@ -408,11 +408,13 @@ body {
     margin: 0 auto;
     overflow: hidden;
     border: 1px solid #e8e8e8;
+    background-color: #fff;
 }
 
 .product .productContainer {
     width: 1140px;
-    height: 800px auto;
+    min-height: 525px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -452,7 +454,7 @@ body {
 
 .product .productContainer .rightBox {
     float: left;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 10px;
     width: 520px;
     height: 100%;
@@ -474,6 +476,7 @@ body {
 .product .productContainer .rightBox .meta .type {
     display: inline;
     float: left;
+    margin-left: 5px;
     width: 60px;
     height: 24px;
     line-height: 24px;
@@ -482,7 +485,7 @@ body {
 }
 
 .product .productContainer .rightBox .meta .originPrice {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     line-height: 24px;
 }
 
@@ -506,7 +509,7 @@ body {
     width: 100%;
     height: 50px;
     line-height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .product .productContainer .rightBox .meta .style .img {
@@ -525,7 +528,7 @@ body {
     width: 100%;
     height: 40px;
     line-height: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .product .productContainer .rightBox .meta .size .checkSize {
@@ -544,7 +547,7 @@ body {
 .product .productContainer .rightBox .meta .number {
     height: 26px;
     line-height: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .product .productContainer .rightBox .meta .number ul,
@@ -577,7 +580,7 @@ li {
 .product .productContainer .rightBox .action {
     height: 40px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .product .productContainer .rightBox .action .buy {
@@ -611,6 +614,17 @@ li {
     border-radius: 2px;
 }
 
+.product .line{
+    border-bottom: 1px solid #4d4d4d;
+    width: 100%;
+    height: auto;
+}
+.product .description{
+    width: 1140px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 10px;
+}
 /* 购物车 */
 .cart {
     width: 1140px;

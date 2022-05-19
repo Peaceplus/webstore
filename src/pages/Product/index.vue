@@ -57,7 +57,7 @@
       </div>
       <div class="rightBox">
         <div class="title">
-          <h3>{{ productName }}</h3>
+          <h3>{{productBand+"&nbsp;"+productName }}</h3>
         </div>
         <div class="meta">
           <div class="originPrice">
@@ -138,6 +138,16 @@
         </div>
       </div>
     </div>
+    <div class="line"></div>
+    <div class="description">
+       <el-descriptions title="商品信息">
+         <el-descriptions-item label="商品名">{{productName}}</el-descriptions-item>
+         <el-descriptions-item label="品牌">{{productBand}}</el-descriptions-item>
+         <el-descriptions-item label="商品介绍">{{productDescription}}</el-descriptions-item>
+         <el-descriptions-item label="颜色">{{productStyle}}</el-descriptions-item>
+         <el-descriptions-item label="尺码">{{productSize}}</el-descriptions-item>
+       </el-descriptions>
+     </div>
   </div>
 </template>
 
@@ -149,7 +159,11 @@ export default {
     return {
       url: require("../../assets/images/product/clothes_1_1.jpg"),
       index: 0,
-      productName: "Timberland/添柏岚 男士经典款防水防风外套/夹克/风衣",
+      productName: "男士经典款防水防风外套/夹克/风衣",
+      productBand: "Timberland/添柏岚",
+      productDescription:"适用于秋冬季节穿搭的美式休闲外套",
+      productStyle:"深蓝色 卡其色 黑色",
+      productSize:"XS S M L XL XXL",
       price: 926.1,
       count: 1,
       srcList: [
@@ -162,11 +176,11 @@ export default {
     };
   },
   methods: {
-    checkImg: function (i) {
+    checkImg(i) {
       this.index = i;
       this.url = require("../../assets/images/product/clothes_1_" + (i + 1) + ".jpg");
     },
-    minus: function (count) {
+    minus(count) {
       if (this.count <= 0) {
         alert("宝贝不能再减少了！");
         this.count = 0;
@@ -174,13 +188,16 @@ export default {
         this.count -= 1;
       }
     },
-    add: function (count) {
+    add(count) {
       if (this.count < 3) {
         this.count++;
       } else {
         alert("每人最多限购3件哦！");
         this.count = 3;
       }
+    },
+    checkedType(){
+      console.log(true)
     },
   },
 };
