@@ -21,12 +21,6 @@
             :src="url"
             :preview-src-list="srcList"
           ></el-image>
-          <el-image
-            class="img"
-            v-if="index == 3"
-            :src="url"
-            :preview-src-list="srcList"
-          ></el-image>
         </div>
         <div class="bottom">
           <img
@@ -47,17 +41,11 @@
             @mouseover="checkImg(2)"
             src="../../assets/images/product/clothes_1_3.jpg"
           />
-          <img
-            class="img"
-            index="3"
-            @mouseover="checkImg(3)"
-            src="../../assets/images/product/clothes_1_4.jpg"
-          />
         </div>
       </div>
       <div class="rightBox">
         <div class="title">
-          <h3>{{productBand+"&nbsp;"+productName }}</h3>
+          <h3>{{ productBand + "&nbsp;" + productName }}</h3>
         </div>
         <div class="meta">
           <div class="originPrice">
@@ -69,41 +57,70 @@
             <span class="type">价格</span><em>￥{{ price.toFixed(2) }}</em>
           </div>
           <div class="style">
-            <!-- 选中切换边框颜色未完成 -->
             <span class="type">款式</span>
             <img
               class="img"
-              index="0"
-              @click="checkedType(index)"
+              :class="{ 'img-selected': style == '深蓝色' }"
+              @click="style = '深蓝色'"
               src="../../assets/images/product/clothes_1_1.jpg"
             />
             <img
               class="img"
-              index="1"
-              @click="checkedType(index)"
+              :class="{ 'img-selected': style == '黑色' }"
+              @click="style = '黑色'"
               src="../../assets/images/product/clothes_1_2.jpg"
             />
             <img
               class="img"
-              index="2"
-              @click="checkedType(index)"
+              :class="{ 'img-selected': style == '卡其色' }"
+              @click="style = '卡其色'"
               src="../../assets/images/product/clothes_1_3.jpg"
-            />
-            <img
-              class="img"
-              index="3"
-              @click="checkedType(index)"
-              src="../../assets/images/product/clothes_1_4.jpg"
             />
           </div>
           <div class="size">
             <span class="type">尺寸</span>
-            <button class="checkSize">XS</button>
-            <button class="checkSize">S</button>
-            <button class="checkSize">M</button>
-            <button class="checkSize">L</button>
-            <button class="checkSize">XL</button>
-            <button class="checkSize">XXL</button>
+            <button
+              class="checkSize"
+              @click="size = 'XS'"
+              :class="{ 'size-selected': size == 'XS' }"
+            >
+              XS
+            </button>
+            <button
+              class="checkSize"
+              @click="size = 'S'"
+              :class="{ 'size-selected': size == 'S' }"
+            >
+              S
+            </button>
+            <button
+              class="checkSize"
+              @click="size = 'M'"
+              :class="{ 'size-selected': size == 'M' }"
+            >
+              M
+            </button>
+            <button
+              class="checkSize"
+              @click="size = 'L'"
+              :class="{ 'size-selected': size == 'L' }"
+            >
+              L
+            </button>
+            <button
+              class="checkSize"
+              @click="size = 'XL'"
+              :class="{ 'size-selected': size == 'XL' }"
+            >
+              XL
+            </button>
+            <button
+              class="checkSize"
+              @click="size = 'XXL'"
+              :class="{ 'size-selected': size == 'XXL' }"
+            >
+              XXL
+            </button>
           </div>
           <div class="number">
             <ul>
@@ -140,14 +157,16 @@
     </div>
     <div class="line"></div>
     <div class="description">
-       <el-descriptions title="商品信息">
-         <el-descriptions-item label="商品名">{{productName}}</el-descriptions-item>
-         <el-descriptions-item label="品牌">{{productBand}}</el-descriptions-item>
-         <el-descriptions-item label="商品介绍">{{productDescription}}</el-descriptions-item>
-         <el-descriptions-item label="颜色">{{productStyle}}</el-descriptions-item>
-         <el-descriptions-item label="尺码">{{productSize}}</el-descriptions-item>
-       </el-descriptions>
-     </div>
+      <el-descriptions title="商品信息">
+        <el-descriptions-item label="商品名">{{ productName }}</el-descriptions-item>
+        <el-descriptions-item label="品牌">{{ productBand }}</el-descriptions-item>
+        <el-descriptions-item label="商品介绍">{{
+          productDescription
+        }}</el-descriptions-item>
+        <el-descriptions-item label="颜色">{{ productStyle }}</el-descriptions-item>
+        <el-descriptions-item label="尺码">{{ productSize }}</el-descriptions-item>
+      </el-descriptions>
+    </div>
   </div>
 </template>
 
@@ -159,11 +178,14 @@ export default {
     return {
       url: require("../../assets/images/product/clothes_1_1.jpg"),
       index: 0,
+      isimgprimary: -1,
       productName: "男士经典款防水防风外套/夹克/风衣",
       productBand: "Timberland/添柏岚",
-      productDescription:"适用于秋冬季节穿搭的美式休闲外套",
-      productStyle:"深蓝色 卡其色 黑色",
-      productSize:"XS S M L XL XXL",
+      productDescription: "适用于秋冬季节穿搭的美式休闲外套",
+      productStyle: "深蓝色 黑色 卡其色 ",
+      productSize: "XS S M L XL XXL",
+      style: "深蓝色",
+      size: "M",
       price: 926.1,
       count: 1,
       srcList: [
@@ -171,7 +193,6 @@ export default {
         require("../../assets/images/product/clothes_1_1.jpg"),
         require("../../assets/images/product/clothes_1_2.jpg"),
         require("../../assets/images/product/clothes_1_3.jpg"),
-        require("../../assets/images/product/clothes_1_4.jpg"),
       ],
     };
   },
@@ -196,8 +217,8 @@ export default {
         this.count = 3;
       }
     },
-    checkedType(){
-      console.log(true)
+    checkType(index) {
+      this.isimgprimary = index;
     },
   },
 };

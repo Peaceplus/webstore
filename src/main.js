@@ -5,6 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import "@/assets/icon-font/iconfont.css"
 import "@/assets/icon-font/iconfont"
 import VueParticles from 'vue-particles'
+
 //全局组件
 import HomeItem from '@/pages/Home/HomeItem';
 //参数：全局组件的名字，组件名
