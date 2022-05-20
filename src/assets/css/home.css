@@ -321,7 +321,7 @@ body {
 .home-container .recommend {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px 20px 20px 200px 20px 20px;
+    grid-template-rows: 290px 20px 20px 290px 20px 20px;
     position: absolute;
     width: 980px;
     height: 480px;
@@ -330,8 +330,8 @@ body {
 
 .home-container .recommend .image1 {
     cursor: pointer;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
 .home-container .recommend .intro1 {
@@ -345,16 +345,18 @@ body {
 
 .home-container .recommend .image2 {
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 25px;
     margin-top: 10px;
-    margin-left: 40px;
+    margin-left: 25px;
 }
 
 .home-container .recommend .intro2 {
+    margin-top: 10px;
     text-align: center;
 }
 
 .home-container .recommend .price2 {
+    margin-top: 10px;
     text-align: center;
     color: crimson;
 }
@@ -795,7 +797,45 @@ li {
     left: 360px;
     background-color: #333;
 }
-
+.personal .personalContainer{
+   min-width: 1200px;
+}
+.head{
+    height: 400px;
+}
+.profile{
+    height: 300px;
+}
+.changePro{
+    position: absolute;
+    left: 500px;
+    bottom: 10px;
+}
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    left: 510px;
+    top: 130px;
+    border-radius: 50%;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    display: block;
+  }
 .footer {
     margin-top: 100px;
     width: 100%;
@@ -893,3 +933,4 @@ li {
     line-height: 24px;
     color: #444;
 }
+
