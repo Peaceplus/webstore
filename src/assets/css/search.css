@@ -47,3 +47,24 @@
 .sortContainer > .sortTable .el-link{
     margin-left: 50px;
 }
+
+.goodContainer{
+    width: 1200px;
+    height: auto;
+}
+
+.showContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 1200px;
+    height: auto;
+    text-align: center;
+}
+
+.image{
+    cursor: pointer;
+}
+
+.price{
+    color: crimson;
+}

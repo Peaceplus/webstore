@@ -24,7 +24,15 @@
       <el-link :underline="false">真我REALME</el-link>
       </el-collapse-item>
     </el-collapse>
-
+  <div class="goodContainer">
+    <div class="showContainer">
+      <div class="image" v-for="pic in pics" :key="pic.id">
+            <img class="img" :src="require('@/assets/' + pic.image)">
+            <label>{{ pic.info }}</label><br>
+            <label class="price">{{ pic.price }}</label>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -42,7 +50,27 @@ export default {
         {name:'华为HUAWEI',type:'info'},
         {name:'APPLE',type:'info'}
         ],
-    };
+        pics: [{id:"1",
+                image:"images/clothes_1_1.png",
+                info:"Timberland/添柏岚 男士防水防风外套",
+                price:"¥ 926.10",
+               },
+               {id:"2",
+                image:"images/5.png",
+                info:"松下G95/G90相机",
+                price:"¥ 5999",
+               },
+               {id:"3",
+                image:"images/6.png",
+                info:"杰克丹尼威士忌",
+                price:"¥ 599",
+               },
+               {id:"4",
+                image:"images/7.png",
+                info:"ROG玩家国度笔记本电脑",
+                price:"¥ 12999",
+               },
+        ]};
   },
   methods:{
     handleChange(val){
