@@ -11,10 +11,7 @@
     </div>
     <el-collapse v-model="activeNames" @change="handleChange" class="sortTable">
       <el-collapse-item name="1" title="品牌">
-      <el-link :underline="false">小米XIAOMI</el-link>
-      <el-link :underline="false">华为HUAWEI</el-link>
-      <el-link :underline="false">APPLE</el-link>
-      <el-link :underline="false">真我REALME</el-link>
+      <el-link :underline="false" v-for="i in brands" :key="i">{{i.brand}}</el-link>
       </el-collapse-item>
     </el-collapse>
   <div class="goodContainer">
@@ -38,6 +35,20 @@ export default {
   data(){
     return{
       activeNames:['1'],
+        brands:[
+          {
+            brand:"小米XIAOMI",
+          },
+          {
+            brand:"华为HUAWEI",
+          },
+          {
+            brand:"APPLE",
+          },
+          {
+            brand:"真我REALME",
+          },
+        ],
         pics: [{id:"1",
                 image:"images/clothes_1_1.png",
                 info:"Timberland/添柏岚 男士防水防风外套",
