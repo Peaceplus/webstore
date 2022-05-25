@@ -319,48 +319,34 @@ body {
 
 /*商品推荐*/
 .home-container .recommend {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 290px 20px 20px 290px 20px 20px;
     position: absolute;
     width: 980px;
     height: 480px;
     top: 420px;
 }
 
-.home-container .recommend .image1 {
+.home-container .recommend .recommendContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 1200px;
+    height: auto;
+    text-align: center;
+}
+
+.home-container .recommend .recommendContainer .image{
     cursor: pointer;
-    margin-right: 25px;
     margin-left: 25px;
+    margin-right: 25px;
 }
 
-.home-container .recommend .intro1 {
-    text-align: center;
-}
-
-.home-container .recommend .price1 {
-    text-align: center;
+.home-container .recommend .recommendContainer .image .price{
     color: crimson;
 }
 
-.home-container .recommend .image2 {
-    cursor: pointer;
-    margin-right: 25px;
-    margin-top: 10px;
-    margin-left: 25px;
+.home-container .recommend .recommendContainer .image .img{
+    width: 290px;
+    height: 290px;
 }
-
-.home-container .recommend .intro2 {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.home-container .recommend .price2 {
-    margin-top: 10px;
-    text-align: center;
-    color: crimson;
-}
-
 /* 竖列表分类 */
 .home-container .classify .content {
     height: 0 auto;

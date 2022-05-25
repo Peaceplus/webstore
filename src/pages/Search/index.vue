@@ -7,13 +7,6 @@
     <div class="sortBreadcrumb">
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item>所有分类</el-breadcrumb-item>
-        <el-breadcrumb-item>
-          <el-tag
-          v-for="tag in tags"
-          :key="tag.name"
-          closable
-          :type="tag.type">{{tag.name}}</el-tag>
-        </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <el-collapse v-model="activeNames" @change="handleChange" class="sortTable">
@@ -45,11 +38,6 @@ export default {
   data(){
     return{
       activeNames:['1'],
-      tags:[
-        {name:'小米XIAOMI',type:'info'},
-        {name:'华为HUAWEI',type:'info'},
-        {name:'APPLE',type:'info'}
-        ],
         pics: [{id:"1",
                 image:"images/clothes_1_1.png",
                 info:"Timberland/添柏岚 男士防水防风外套",

@@ -39,25 +39,13 @@
         </ul>
       </div>
       <div class="recommend">
-          <div class="image1" @click="goProduct" v-for="(item, index) in imList1" :key="index">
-            <img :src="require('@/assets/' + item)" />
-          </div>
-          <div class="intro1" v-for="i in inList1" :key="i">
-            <label>{{ i }}</label>
-          </div>
-          <div class="price1" v-for="p in prList1" :key="p">
-            <label>{{ p }}</label>
-          </div>
-
-          <div class="image2" v-for="(item, index) in imList2" :key="index">
-            <img :src="require('@/assets/' + item)">
-          </div>
-          <div class="intro2" v-for="i in inList2" :key="i">
-            <label>{{ i }}</label>
-          </div>
-          <div class="price2" v-for="p in prList2" :key="p">
-            <label>{{ p }}</label>
-          </div>
+         <div class="recommendContainer">
+           <div class="image" v-for="pic in pics" :key="pic.id">
+            <img class="img" :src="require('@/assets/' + pic.image)" @click="goProduct">
+            <label>{{ pic.info }}</label><br>
+            <label class="price">{{ pic.price }}</label>
+      </div>
+    </div>
       </div>
     </div>
   </div>
@@ -70,22 +58,47 @@ export default {
 
   data: () => ({
     viewList: ["images/1.png", "images/2.png", "images/3.png"],
-    imList1: ["images/clothes_1_1.png", "images/5.png", "images/6.png", "images/7.png"],
-    inList1: [
-      "Timberland/添柏岚 男士防水防风外套",
-      "松下G95/G90相机",
-      "杰克丹尼威士忌",
-      "ROG玩家国度笔记本电脑",
-    ],
-    prList1: ["¥ 926.10", "¥ 5999", "¥ 599", "¥ 12999"],
-    imList2: ["images/4.png", "images/5.png", "images/6.png", "images/7.png"],
-    inList2: [
-      "LAVA智能手机",
-      "松下G95/G90相机",
-      "杰克丹尼威士忌",
-      "ROG玩家国度笔记本电脑",
-    ],
-    prList2: ["¥ 2999", "¥ 5999", "¥ 599", "¥ 12999"],
+    pics: [{id:"1",
+                image:"images/clothes_1_1.png",
+                info:"Timberland/添柏岚 男士防水防风外套",
+                price:"¥ 926.10",
+               },
+               {id:"2",
+                image:"images/5.png",
+                info:"松下G95/G90相机",
+                price:"¥ 5999",
+               },
+               {id:"3",
+                image:"images/6.png",
+                info:"杰克丹尼威士忌",
+                price:"¥ 599",
+               },
+               {id:"4",
+                image:"images/7.png",
+                info:"ROG玩家国度笔记本电脑",
+                price:"¥ 12999",
+               },
+                {id:"5",
+                image:"images/4.png",
+                info:"LAVA智能手机",
+                price:"¥ 2999",
+               },
+                {id:"5",
+                image:"images/4.png",
+                info:"LAVA智能手机",
+                price:"¥ 2999",
+               },
+                {id:"5",
+                image:"images/4.png",
+                info:"LAVA智能手机",
+                price:"¥ 2999",
+               },
+                {id:"5",
+                image:"images/4.png",
+                info:"LAVA智能手机",
+                price:"¥ 2999",
+               },
+        ],
     timer: 0,
     interrupt: null,
   }),
