@@ -50,7 +50,7 @@ export default {
           },
         ],
         pics: [{id:"1",
-                image:"images/clothes_1_1.png",
+                image:"images/product/clothes_1_1.jpg",
                 info:"Timberland/添柏岚 男士防水防风外套",
                 price:"¥ 926.10",
                },
