@@ -10,7 +10,6 @@ import Account from '@/pages/Account';
 import Info from '@/pages/Info';
 import Product from '@/pages/Product';
 import Cart from '@/pages/Cart';
-import Category from '@/pages/Category';
 import Pay from '@/pages/Pay';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
@@ -111,19 +110,6 @@ export default new VueRouter({
       path: '/cart',
       title: "购物车",
       component: Cart,
-      meta: {
-        login: true,
-        show_header: true,
-        show_logo: false,
-        show_search: true,
-        show_footer:true
-      }
-    },
-    {
-      name: "category",
-      path: '/category',
-      title: "商品分类",
-      component: Category,
       meta: {
         login: true,
         show_header: true,

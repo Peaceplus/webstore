@@ -81,16 +81,6 @@
             ></el-input>
           </el-form-item>
 
-          <el-form-item prop="mail">
-            <label class="iconfont icon-mail"></label>
-            <el-input
-              type="text"
-              v-model="regForm.mail"
-              auto-complete="off"
-              placeholder="请输入邮箱"
-            ></el-input>
-          </el-form-item>
-
           <el-form-item prop="canvas">
             <label class="iconfont icon-captcha"></label>
             <el-input
@@ -100,14 +90,6 @@
               placeholder="请输入验证码"
               class="captcha"
             ></el-input>
-            <el-button>发送验证码</el-button>
-            <!-- <input
-                type="button"
-                @click="createCode"
-                autocomplete="off"
-                class="verification"
-                v-model="checkCode"
-              /> -->
           </el-form-item>
           <el-form-item prop="password">
             <label class="iconfont icon-lock"></label>

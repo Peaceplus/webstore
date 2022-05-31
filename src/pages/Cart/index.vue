@@ -143,7 +143,7 @@ export default {
       });
     },
     goShopping() {
-      this.$router.push("/category");
+      this.$router.push("/home");
     },
     goPay() {
       this.$router.push("/pay");
