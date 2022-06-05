@@ -325,7 +325,7 @@ body {
     top: 420px;
 }
 
-.home-container .recommend .recommendContainer{
+.home-container .recommend .recommendContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 1200px;
@@ -333,20 +333,21 @@ body {
     text-align: center;
 }
 
-.home-container .recommend .recommendContainer .image{
+.home-container .recommend .recommendContainer .image {
     cursor: pointer;
     margin-left: 25px;
     margin-right: 25px;
 }
 
-.home-container .recommend .recommendContainer .image .price{
+.home-container .recommend .recommendContainer .image .price {
     color: crimson;
 }
 
-.home-container .recommend .recommendContainer .image .img{
+.home-container .recommend .recommendContainer .image .img {
     width: 290px;
     height: 290px;
 }
+
 /* 竖列表分类 */
 .home-container .classify .content {
     height: 0 auto;
@@ -538,7 +539,7 @@ body {
     border: 2px solid #ff4400;
 }
 
-.product .productContainer .rightBox .meta .size .size-selected{
+.product .productContainer .rightBox .meta .size .size-selected {
     width: auto;
     height: 28px;
     padding: 3px 6px;
@@ -769,9 +770,52 @@ li {
     border-radius: 18px;
 }
 
-.payContainer .time {
+
+.paySuccess {
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid rgb(211, 211, 211);
+    width: 1200px;
+    width: 1148px;
+}
+
+.success {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.success h3 {
+    margin-top: 20px;
     text-align: center;
-    color: #e94826;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.success h3 img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    margin-right: 14px;
+}
+
+.paydetail {
+    margin-left: 66px;
+    font-size: 15px;
+}
+
+.paydetail .el-button {
+    margin-left: 120px;
+    margin-top: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 6px;
+    user-select: none;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 /*个人中心*/
@@ -783,20 +827,25 @@ li {
     left: 360px;
     background-color: #333;
 }
-.personal .personalContainer{
-   min-width: 1200px;
+
+.personal .personalContainer {
+    min-width: 1200px;
 }
-.head{
+
+.head {
     height: 400px;
 }
-.profile{
+
+.profile {
     height: 300px;
 }
-.changePro{
+
+.changePro {
     position: absolute;
     left: 500px;
     bottom: 10px;
 }
+
 .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     cursor: pointer;
@@ -805,23 +854,27 @@ li {
     left: 510px;
     top: 130px;
     border-radius: 50%;
-  }
-  .avatar-uploader .el-upload:hover {
+}
+
+.avatar-uploader .el-upload:hover {
     border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
+}
+
+.avatar-uploader-icon {
     font-size: 28px;
     color: #8c939d;
     width: 178px;
     height: 178px;
     line-height: 178px;
     text-align: center;
-  }
-  .avatar {
+}
+
+.avatar {
     width: 150px;
     height: 150px;
     display: block;
-  }
+}
+
 .footer {
     margin-top: 100px;
     width: 100%;
@@ -919,4 +972,3 @@ li {
     line-height: 24px;
     color: #444;
 }
-

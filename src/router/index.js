@@ -11,6 +11,7 @@ import Info from '@/pages/Info';
 import Product from '@/pages/Product';
 import Cart from '@/pages/Cart';
 import Pay from '@/pages/Pay';
+import PaySuccess from '@/pages/Pay/PaySuccess';
 //先保存VueRouter原型对象的push
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
@@ -50,7 +51,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer:true
+        show_footer: true
       },
     },
     {
@@ -63,7 +64,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer:true
+        show_footer: true
       },
     },
     {
@@ -76,7 +77,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
-        show_footer:false
+        show_footer: false
       },
     },
     {
@@ -89,7 +90,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
-        show_footer:false
+        show_footer: false
       },
     },
     {
@@ -102,7 +103,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer:true
+        show_footer: true
       }
     },
     {
@@ -115,7 +116,7 @@ export default new VueRouter({
         show_header: true,
         show_logo: false,
         show_search: true,
-        show_footer:true
+        show_footer: true
       }
     },
     {
@@ -128,7 +129,19 @@ export default new VueRouter({
         show_header: true,
         show_logo: true,
         show_search: false,
-        show_footer:true
+        show_footer: true
+      }
+    },
+    {
+      name: "paysuccess",
+      path: '/paysuccess',
+      title: "支付成功",
+      component: PaySuccess,
+      meta: {
+        show_header: true,
+        show_logo: false,
+        show_search: true,
+        show_footer: true
       }
     },
     //重定向，项目运行时，访问/，定向至首页
