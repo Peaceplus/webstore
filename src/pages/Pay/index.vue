@@ -111,7 +111,7 @@ export default {
       ],
       currentRow: null,
       payRadio: "支付宝支付",
-      payPrice: "0.01",
+      payPrice: "14299.00",
     };
   },
 
@@ -135,8 +135,7 @@ export default {
       this.templateSelection = row; //获取选中行的所有参数，获取指定参数使用' .xxx '
     },
     onSubmit(){
-      console.log(this.templateSelection)
-      console.log(this.payRadio)
+      this.$router.push('/paySuccess');
       if(this.payRadio == "支付宝支付"){
         //支付宝支付
       }else if(this.payRadio == "微信支付"){

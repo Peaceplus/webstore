@@ -1,4 +1,4 @@
-@
+import {formName} from 'element-ui';
 <template>
   <div class="account-container">
     <vue-particles
@@ -20,7 +20,12 @@
       clickMode="push"
     >
     </vue-particles>
-    <el-tabs type="border-card" v-model="ariaSelected" @tab-click="handleClick" class="form">
+    <el-tabs
+      type="border-card"
+      v-model="ariaSelected"
+      @tab-click="handleClick"
+      class="form"
+    >
       <el-tab-pane label="登录" name="login">
         <el-form
           :model="loginForm"
@@ -31,7 +36,7 @@
           size="medium"
           class="loginForm"
         >
-          <el-form-item props="userName">
+          <el-form-item prop="userName">
             <label class="iconfont icon-user"></label>
             <el-input
               type="text"
@@ -39,7 +44,7 @@
               placeholder="请输入用户名"
             ></el-input>
           </el-form-item>
-          <el-form-item props="password">
+          <el-form-item prop="password">
             <label class="iconfont icon-lock"></label>
             <el-input
               type="password"
@@ -48,15 +53,15 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-checkbox v-model="checked"
-              >已阅读并同意
-              <el-link @click="drawer = true" :underline="false">《用户协议》</el-link>
-            </el-checkbox>
-            <el-button type="primary" @click="submitForm(loginForm)">登录</el-button>
+            <el-button type="primary" @click="submitForm()">登录</el-button>
           </el-form-item>
         </el-form>
 
-        <el-drawer title="网上商城用户协议" :visible.sync="drawer" direction="ttb">
+        <el-drawer
+          title="网上商城用户协议"
+          :visible.sync="drawer"
+          direction="ttb"
+        >
           <span>本网站仅用于学习交流使用！</span>
         </el-drawer>
       </el-tab-pane>
@@ -81,16 +86,6 @@
             ></el-input>
           </el-form-item>
 
-          <el-form-item prop="canvas">
-            <label class="iconfont icon-captcha"></label>
-            <el-input
-              type="text"
-              v-model="regForm.canvas"
-              auto-complete="off"
-              placeholder="请输入验证码"
-              class="captcha"
-            ></el-input>
-          </el-form-item>
           <el-form-item prop="password">
             <label class="iconfont icon-lock"></label>
             <el-input
@@ -110,8 +105,8 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="submitForm('regForm')">注册</el-button>
-            <el-button @click="resetForm('regForm')">重置</el-button>
+            <el-button type="primary" @click="addShopUser()">注册</el-button>
+            <el-button @click="resetForm()">重置</el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>
@@ -139,18 +134,9 @@ export default {
       if (value === "") {
         callback(new Error("请输入用户名"));
       } else if (!usernamePattern.test(value)) {
-        callback(new Error("用户名应为4-16位由字母、数字、下划线或减号组成的字符"));
-      } else {
-        callback();
-      }
-    };
-    // 验证码验证
-    var validateCanvas = (rule, value, callback) => {
-      value = value.toUpperCase();
-      if (value === "") {
-        callback(new Error("请输入验证码"));
-      } else if (value != this.checkCode) {
-        callback(new Error("请输入正确的验证码"));
+        callback(
+          new Error("用户名应为4-16位由字母、数字、下划线或减号组成的字符")
+        );
       } else {
         callback();
       }
@@ -193,179 +179,101 @@ export default {
       dialogVisible: false,
       regForm: {
         userName: "",
-        mail: "",
-        canvas: "",
-        code: "",
-        checkCode: "",
         password: "",
         checkPassword: "",
       },
       rules: {
-        userName: [{ required: true, validator: validateUsername, trigger: "blur" }],
-        mail: [
-          { required: true, message: "请输入邮箱地址", trigger: "blur" },
-          { type: "mail", message: "请输入正确的邮箱地址", trigger: "blur" },
+        userName: [
+          { required: true, validator: validateUsername, trigger: "blur" },
         ],
-        canvas: [{ required: true, validator: validateCanvas, trigger: "blur" }],
         password: [{ required: true, validator: validatePwd, trigger: "blur" }],
-        checkPassword: [{ required: true, validator: validatePwd2, trigger: "blur" }],
+        checkPassword: [
+          { required: true, validator: validatePwd2, trigger: "blur" },
+        ],
       },
     };
   },
-  created() {
-    this.createCode();
-  },
   methods: {
-    submitForm(formName) {
-      this.$refs.formName.validate((valid) => {
-        if (valid) {
-          let info = JSON.parse(localStorage.getItem("Info"));
-          if (info[this.formName.name]) {
-            if (this.formName.password == info[this.formName.name]) {
-              let userName = this.formName.name;
-              localStorage.setItem("userName", userName);
-              this.$router.push("/home");
-              window.location.reload();
-            } else {
-              alert("密码错误，请检查用户名或密码是否正确");
-            }
-          } else {
-            alert("用户名不存在，请检查用户名");
-          }
+    submitForm() {
+      let _this = this;
+      // 使用 axios 将登录信息发送到后端
+      this.axios({
+        url: "http://localhost:8888/webstore/login", // 请求地址/soj/api/login
+        method: "post", // 请求方法
+        headers: {
+          // 请求头
+          "Content-Type": "application/json",
+        },
+        params: {
+          // 请求参数
+          username: _this.loginForm.userName,
+          password: _this.loginForm.password,
+        },
+      }).then((res) => {
+        // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+        if (res.data.data === "login-success") {
+          // 当响应的data为 login-success 时，说明登录成功
+          // 将用户信息存储到sessionStorage中
+          sessionStorage.setItem("username", _this.ruleForm2.username);
+          //隐藏登录注册按钮
+          this.showName = true;
+          this.showOut = true;
+          // 显示后端响应的成功信息
+          this.$message({
+            message: "登录成功",
+            type: "success",
+          });
+          this.$router.push("/home");
         } else {
-          console.log("error submit!");
-          return false;
+          // 当响应的编码不为 login-success 时，说明登录失败
+          // 显示后端响应的失败信息
+          this.$message.error("登录失败");
         }
+        // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+        this.loading = false;
       });
     },
-    handleClick(tab, event) {
-      console.log(tab, event);
+    addShopUser() {
+      let _this = this;
+      this.axios({
+        // axios 向后端发起请求
+        url: "http://localhost:8888/webstore/add_shop_user", // 请求地址
+        method: "post", // 请求方法
+        headers: {
+          // 请求头
+          "Content-Type": "application/json",
+        },
+        params: {
+          // 请求参数，为 data，与登录的 params 不太一样
+          username: _this.regForm.userName,
+          password: _this.regForm.password,
+          checkPassword: _this.regForm.checkPassword,
+        },
+      }).then((res) => {
+        // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+        if (res.data.data == "register-success") {
+          // 当响应的编码为 register-success 时，说明注册成功
+          // 显示后端响应的成功信息
+          this.$message({
+            message: "注册成功",
+            type: "success",
+          });
+          this.dialogRegVisible = false;
+        } else {
+          // 当响应的编码不为 register-success 时，说明注册失败
+          // 显示后端响应的失败信息
+          this.$message.error("注册失败");
+        }
+        // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+        this.loading = false;
+      });
     },
-    // 图形验证码
-    createCode() {
-      // 初始化
-      this.code = "";
-      this.checkCode = "";
-      this.canvas = "";
-      // 验证码长度
-      const codeLength = 4;
-      // 随机生成
-      const random = new Array(
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        "A",
-        "a",
-        "B",
-        "b",
-        "C",
-        "c",
-        "D",
-        "d",
-        "E",
-        "e",
-        "F",
-        "f",
-        "G",
-        "g",
-        "H",
-        "h",
-        "I",
-        "i",
-        "J",
-        "j",
-        "K",
-        "k",
-        "L",
-        "l",
-        "M",
-        "m",
-        "N",
-        "n",
-        "O",
-        "o",
-        "P",
-        "p",
-        "Q",
-        "q",
-        "R",
-        "r",
-        "S",
-        "s",
-        "T",
-        "t",
-        "U",
-        "u",
-        "V",
-        "v",
-        "W",
-        "w",
-        "X",
-        "x",
-        "Y",
-        "y",
-        "Z",
-        "z"
-      );
-      for (let i = 0; i < codeLength; i++) {
-        // 取得随机数索引(0~35)
-        let index = Math.floor(Math.random() * 36);
-        // 根据索引取得随机数,加到code中
-        this.code += random[index];
-      }
-      // 将code值赋给验证码
-      this.checkCode = this.code;
-      this.checkCode = this.checkCode.toUpperCase();
-    },
-
     handleClose(done) {
       this.$confirm("确认关闭？")
         .then((_) => {
           done();
         })
         .catch((_) => {});
-    },
-    submitForm(regForm) {
-      this.$refs[regForm].validate((valid) => {
-        if (valid) {
-          //两次密码相同
-          if (this.regForm.password == this.regForm.checkPassword) {
-            //获取数据，判断用户名是否已存在
-            let info = JSON.parse(localStorage.getItem("Info"));
-            console.log(info);
-            //存在info数组时，立即开始内部if-else判断，无则else
-            if (info) {
-              //若存在用户名，则返回用户名已存在
-              if (info[this.regForm.name]) {
-                alert("用户名已存在");
-              } else {
-                //若没有则添加
-                //对象[(键)变量] = 值
-                info[this.regForm.name] = this.regForm.password;
-                this.$router.push("/login");
-              }
-            } else {
-              //没有info时，新建info对象
-              info = { [this.regForm.name]: this.regForm.password };
-              this.$router.push("/login");
-            }
-            // 存储数据
-            localStorage.setItem("Info", JSON.stringify(info));
-          } else {
-            alert("密码不一致");
-          }
-        } else {
-          console.log("error submit!");
-          return false;
-        }
-      });
     },
     resetForm(regForm) {
       this.$refs[regForm].resetFields();

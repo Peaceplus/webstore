@@ -4,7 +4,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import "@/assets/icon-font/iconfont.css"
 import "@/assets/icon-font/iconfont"
-import VueParticles from 'vue-particles'
+import VueParticles from 'vue-particles';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 //全局组件
 import HomeItem from '@/pages/Home/HomeItem';
@@ -19,6 +21,7 @@ import router from '@/router';
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(VueParticles)
+Vue.use(VueAxios,axios)
 
 new Vue({
   render: h => h(App),
@@ -26,3 +29,7 @@ new Vue({
   //注册路由信息：当书写router时，组件身上都拥有$route,$router属性
   router
 }).$mount('#app')
+
+export default{
+  url:'http://localhost:8888'
+}
