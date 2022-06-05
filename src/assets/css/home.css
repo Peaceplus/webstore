@@ -174,9 +174,6 @@ body {
     width: 100%;
     position: absolute;
     min-height: 800px;
-    /* height: auto;
-    background-image: url(../images/login/bg1.jpg);
-    background-position: 50%; */
 }
 
 .form {
@@ -229,11 +226,6 @@ body {
     margin-left: 14px;
 }
 
-.account-container .captcha {
-    width: 145px;
-    height: 36px;
-    line-height: 36px;
-}
 
 /* 首页 */
 .outer {

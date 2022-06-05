@@ -90,6 +90,7 @@
               placeholder="请输入验证码"
               class="captcha"
             ></el-input>
+            <img ref="code" style="height:36px;width:100px;margin-left:20px" src="@/assets/images/20.png" >
           </el-form-item>
           <el-form-item prop="password">
             <label class="iconfont icon-lock"></label>
@@ -212,117 +213,86 @@ export default {
       },
     };
   },
-  created() {
-    this.createCode();
-  },
   methods: {
-    submitForm(formName) {
-      this.$refs.formName.validate((valid) => {
+    submitForm2 (formName) {
+      // 验证表单中的账号密码是否有效，因为在上面rules中定义为了必填 required: true
+      this.$refs[formName].validate((valid) => {
+        // 点击登录后，让登录按钮开始转圈圈（展示加载动画）
+        this.loading = true;
+        // 如果经过校验，账号密码都不为空，则发送请求到后端登录接口
         if (valid) {
-          let info = JSON.parse(localStorage.getItem("Info"));
-          if (info[this.formName.name]) {
-            if (this.formName.password == info[this.formName.name]) {
-              let userName = this.formName.name;
-              localStorage.setItem("userName", userName);
-              this.$router.push("/home");
-              window.location.reload();
-            } else {
-              alert("密码错误，请检查用户名或密码是否正确");
+          let _this = this;
+          // 使用 axios 将登录信息发送到后端
+          this.axios({
+            url: "http://localhost:8888/login",               // 请求地址/soj/api/login
+            method: "post",                       // 请求方法
+            headers: {                            // 请求头
+              "Content-Type": "application/json",
+            },
+            params: {                             // 请求参数
+              username: _this.ruleForm2.username,
+              password: _this.ruleForm2.password,
+            },
+          }).then((res) => { // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+            if (res.data.data === "login-success") {  // 当响应的data为 login-success 时，说明登录成功
+              // 将用户信息存储到sessionStorage中
+              sessionStorage.setItem("username", _this.ruleForm2.username);
+              //隐藏登录注册按钮
+              this.showName = true;
+              this.showOut = true;
+              // 显示后端响应的成功信息
+              this.$message({
+                message: '登录成功',
+                type: "success",
+              });
+            } else {  // 当响应的编码不为 login-success 时，说明登录失败
+              // 显示后端响应的失败信息
+              this.$message.error('登录失败')
             }
-          } else {
-            alert("用户名不存在，请检查用户名");
-          }
-        } else {
-          console.log("error submit!");
+            // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+            this.loading = false;
+          });
+        } else {  // 如果账号或密码有一个没填，就直接提示必填，不向后端请求
+          this.loading = false;
           return false;
         }
       });
     },
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-    // 图形验证码
-    createCode() {
-      // 初始化
-      this.code = "";
-      this.checkCode = "";
-      this.canvas = "";
-      // 验证码长度
-      const codeLength = 4;
-      // 随机生成
-      const random = new Array(
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        "A",
-        "a",
-        "B",
-        "b",
-        "C",
-        "c",
-        "D",
-        "d",
-        "E",
-        "e",
-        "F",
-        "f",
-        "G",
-        "g",
-        "H",
-        "h",
-        "I",
-        "i",
-        "J",
-        "j",
-        "K",
-        "k",
-        "L",
-        "l",
-        "M",
-        "m",
-        "N",
-        "n",
-        "O",
-        "o",
-        "P",
-        "p",
-        "Q",
-        "q",
-        "R",
-        "r",
-        "S",
-        "s",
-        "T",
-        "t",
-        "U",
-        "u",
-        "V",
-        "v",
-        "W",
-        "w",
-        "X",
-        "x",
-        "Y",
-        "y",
-        "Z",
-        "z"
-      );
-      for (let i = 0; i < codeLength; i++) {
-        // 取得随机数索引(0~35)
-        let index = Math.floor(Math.random() * 36);
-        // 根据索引取得随机数,加到code中
-        this.code += random[index];
-      }
-      // 将code值赋给验证码
-      this.checkCode = this.code;
-      this.checkCode = this.checkCode.toUpperCase();
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        this.loading = true;  // 提交按钮显示加载动画
+        if (valid) {
+          let _this = this;
+          this.axios({     // axios 向后端发起请求
+            url: "http://localhost:8888/add_shop_user",  // 请求地址
+            method: "post",             // 请求方法
+            headers: {                  // 请求头
+              "Content-Type": "application/json",
+            },
+            params: { // 请求参数，为 data，与登录的 params 不太一样
+              username: _this.ruleForm.username,
+              password: _this.ruleForm.password,
+            },
+          }).then((res) => { // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+            if (res.data.data == 'register-success') {  // 当响应的编码为 register-success 时，说明注册成功
+              // 显示后端响应的成功信息
+              this.$message({
+                message: '注册成功',
+                type: "success",
+              });
+              this.dialogRegVisible = false
+            } else {  // 当响应的编码不为 register-success 时，说明注册失败
+              // 显示后端响应的失败信息
+              this.$message.error('注册失败')
+            }
+            // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+            this.loading = false;
+          });
+        } else { // 如果账号或密码有一个没填，就直接提示必填，不向后端请求
+          this.loading = false;
+          return false;
+        }
+      });
     },
 
     handleClose(done) {
@@ -332,41 +302,7 @@ export default {
         })
         .catch((_) => {});
     },
-    submitForm(regForm) {
-      this.$refs[regForm].validate((valid) => {
-        if (valid) {
-          //两次密码相同
-          if (this.regForm.password == this.regForm.checkPassword) {
-            //获取数据，判断用户名是否已存在
-            let info = JSON.parse(localStorage.getItem("Info"));
-            console.log(info);
-            //存在info数组时，立即开始内部if-else判断，无则else
-            if (info) {
-              //若存在用户名，则返回用户名已存在
-              if (info[this.regForm.name]) {
-                alert("用户名已存在");
-              } else {
-                //若没有则添加
-                //对象[(键)变量] = 值
-                info[this.regForm.name] = this.regForm.password;
-                this.$router.push("/login");
-              }
-            } else {
-              //没有info时，新建info对象
-              info = { [this.regForm.name]: this.regForm.password };
-              this.$router.push("/login");
-            }
-            // 存储数据
-            localStorage.setItem("Info", JSON.stringify(info));
-          } else {
-            alert("密码不一致");
-          }
-        } else {
-          console.log("error submit!");
-          return false;
-        }
-      });
-    },
+  
     resetForm(regForm) {
       this.$refs[regForm].resetFields();
     },
