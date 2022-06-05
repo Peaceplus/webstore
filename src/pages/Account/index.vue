@@ -1,4 +1,3 @@
-import {formName} from 'element-ui';
 <template>
   <div class="account-container">
     <vue-particles
@@ -12,7 +11,7 @@ import {formName} from 'element-ui';
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
-      :linesDistance="150"
+      :linesDistance  ="150"
       :moveSpeed="3"
       :hoverEffect="true"
       hoverMode="grab"
@@ -198,7 +197,7 @@ export default {
       let _this = this;
       // 使用 axios 将登录信息发送到后端
       this.axios({
-        url: "http://localhost:8888/webstore/login", // 请求地址/soj/api/login
+        url: "http://localhost:8888/webstore/login", // 请求地址
         method: "post", // 请求方法
         headers: {
           // 请求头
@@ -214,16 +213,14 @@ export default {
         if (res.data.data === "login-success") {
           // 当响应的data为 login-success 时，说明登录成功
           // 将用户信息存储到sessionStorage中
-          sessionStorage.setItem("username", _this.ruleForm2.username);
-          //隐藏登录注册按钮
-          this.showName = true;
-          this.showOut = true;
+          localStorage.setItem("userName", _this.loginForm.userName);
+          this.username=true;
           // 显示后端响应的成功信息
           this.$message({
             message: "登录成功",
             type: "success",
           });
-          this.$router.push("/home");
+          this.goHome();
         } else {
           // 当响应的编码不为 login-success 时，说明登录失败
           // 显示后端响应的失败信息
@@ -258,6 +255,7 @@ export default {
             message: "注册成功",
             type: "success",
           });
+          this.reFresh();
           this.dialogRegVisible = false;
         } else {
           // 当响应的编码不为 register-success 时，说明注册失败
@@ -274,6 +272,13 @@ export default {
           done();
         })
         .catch((_) => {});
+    },
+    goHome(){
+      this.$router.push('/home');
+      this.$router.go(0);
+    },
+    reFresh(){
+      this.$router.go(0);
     },
     resetForm(regForm) {
       this.$refs[regForm].resetFields();
