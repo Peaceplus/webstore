@@ -86,6 +86,20 @@ import {formName} from 'element-ui';
             ></el-input>
           </el-form-item>
 
+<<<<<<< HEAD
+=======
+          <el-form-item prop="canvas">
+            <label class="iconfont icon-captcha"></label>
+            <el-input
+              type="text"
+              v-model="regForm.canvas"
+              auto-complete="off"
+              placeholder="请输入验证码"
+              class="captcha"
+            ></el-input>
+            <img ref="code" style="height:36px;width:100px;margin-left:20px" src="@/assets/images/20.png" >
+          </el-form-item>
+>>>>>>> 1c7986b561235f62a61c10fc04954f4b0ea27668
           <el-form-item prop="password">
             <label class="iconfont icon-lock"></label>
             <el-input
@@ -194,6 +208,7 @@ export default {
     };
   },
   methods: {
+<<<<<<< HEAD
     submitForm() {
       let _this = this;
       // 使用 axios 将登录信息发送到后端
@@ -228,11 +243,55 @@ export default {
           // 当响应的编码不为 login-success 时，说明登录失败
           // 显示后端响应的失败信息
           this.$message.error("登录失败");
+=======
+    submitForm2 (formName) {
+      // 验证表单中的账号密码是否有效，因为在上面rules中定义为了必填 required: true
+      this.$refs[formName].validate((valid) => {
+        // 点击登录后，让登录按钮开始转圈圈（展示加载动画）
+        this.loading = true;
+        // 如果经过校验，账号密码都不为空，则发送请求到后端登录接口
+        if (valid) {
+          let _this = this;
+          // 使用 axios 将登录信息发送到后端
+          this.axios({
+            url: "http://localhost:8888/login",               // 请求地址/soj/api/login
+            method: "post",                       // 请求方法
+            headers: {                            // 请求头
+              "Content-Type": "application/json",
+            },
+            params: {                             // 请求参数
+              username: _this.ruleForm2.username,
+              password: _this.ruleForm2.password,
+            },
+          }).then((res) => { // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+            if (res.data.data === "login-success") {  // 当响应的data为 login-success 时，说明登录成功
+              // 将用户信息存储到sessionStorage中
+              sessionStorage.setItem("username", _this.ruleForm2.username);
+              //隐藏登录注册按钮
+              this.showName = true;
+              this.showOut = true;
+              // 显示后端响应的成功信息
+              this.$message({
+                message: '登录成功',
+                type: "success",
+              });
+            } else {  // 当响应的编码不为 login-success 时，说明登录失败
+              // 显示后端响应的失败信息
+              this.$message.error('登录失败')
+            }
+            // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+            this.loading = false;
+          });
+        } else {  // 如果账号或密码有一个没填，就直接提示必填，不向后端请求
+          this.loading = false;
+          return false;
+>>>>>>> 1c7986b561235f62a61c10fc04954f4b0ea27668
         }
         // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
         this.loading = false;
       });
     },
+<<<<<<< HEAD
     addShopUser() {
       let _this = this;
       this.axios({
@@ -266,6 +325,42 @@ export default {
         }
         // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
         this.loading = false;
+=======
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        this.loading = true;  // 提交按钮显示加载动画
+        if (valid) {
+          let _this = this;
+          this.axios({     // axios 向后端发起请求
+            url: "http://localhost:8888/add_shop_user",  // 请求地址
+            method: "post",             // 请求方法
+            headers: {                  // 请求头
+              "Content-Type": "application/json",
+            },
+            params: { // 请求参数，为 data，与登录的 params 不太一样
+              username: _this.ruleForm.username,
+              password: _this.ruleForm.password,
+            },
+          }).then((res) => { // 当收到后端的响应时执行该括号内的代码，res 为响应信息，也就是后端返回的信息
+            if (res.data.data == 'register-success') {  // 当响应的编码为 register-success 时，说明注册成功
+              // 显示后端响应的成功信息
+              this.$message({
+                message: '注册成功',
+                type: "success",
+              });
+              this.dialogRegVisible = false
+            } else {  // 当响应的编码不为 register-success 时，说明注册失败
+              // 显示后端响应的失败信息
+              this.$message.error('注册失败')
+            }
+            // 不管响应成功还是失败，收到后端响应的消息后就不再让登录按钮显示加载动画了
+            this.loading = false;
+          });
+        } else { // 如果账号或密码有一个没填，就直接提示必填，不向后端请求
+          this.loading = false;
+          return false;
+        }
+>>>>>>> 1c7986b561235f62a61c10fc04954f4b0ea27668
       });
     },
     handleClose(done) {
@@ -275,6 +370,10 @@ export default {
         })
         .catch((_) => {});
     },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 1c7986b561235f62a61c10fc04954f4b0ea27668
     resetForm(regForm) {
       this.$refs[regForm].resetFields();
     },
