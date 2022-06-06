@@ -10,8 +10,12 @@
         </div>
         <div class="loginList">
           <!-- 声明式导航：务必要有to属性 -->
+          <div v-if="show" class="log-reg">
           <router-link class="login" to="/account">登录</router-link>
           <router-link class="register" to="/account">注册</router-link>
+          </div>
+          <span class="user">欢迎您 {{userName}}</span>
+          <span class="exit" @click="Exit">退出</span>
           <router-link class="info" to="/info">
           <i class="iconfont icon-user"></i>个人中心</router-link>
           <router-link class="cart" to="/cart">
@@ -29,6 +33,7 @@ export default {
   data() {
     return {
       activeIndex:'1',
+      show:true,
     };
   },
   computed: {
@@ -36,11 +41,28 @@ export default {
       return localStorage.getItem("userName"); //获取用户名
     },
   },
-  mounted() {},
+  mounted() {
+   this.Show();
+  },
 
   methods: {
+
     handleSelect(key,keyPath){
       console.log(key,keyPath);
+    },
+    Show(){
+      if(localStorage.getItem("userName") ==null){
+        this.show = true;
+        // console.log(sessionStorage.getItem("userName"));
+      }
+      else{
+        this.show = false;
+        // console.log(localStorage.getItem("userName"));
+      }
+    },
+    Exit(){
+      this.$router.go(0);
+      localStorage.clear();
     }
   },
 };

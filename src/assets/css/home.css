@@ -73,6 +73,29 @@ body {
     color: #fefefe;
 }
 
+.header>.top .container .loginList .user {
+    border-left: 1px solid #666;
+    padding: 0 5px;
+    margin-left: 5px;
+    color: #999;
+}
+
+.header>.top .container .loginList .user:hover {
+    cursor: default;
+}
+
+.header>.top .container .loginList .exit {
+    border-left: 1px solid #666;
+    padding: 0 5px;
+    margin-left: 5px;
+    color: #999;
+}
+
+.header>.top .container .loginList .exit:hover {
+    color: #fefefe;
+    cursor: pointer;
+}
+
 .header>.top .container .loginList .info {
     border-left: 1px solid #666;
     padding: 0 5px;
