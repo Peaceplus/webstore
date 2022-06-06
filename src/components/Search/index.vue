@@ -25,11 +25,11 @@
         @select="handleSelect"
       >
         <el-menu-item index="1" @click="goHome">首页</el-menu-item>
-        <el-menu-item index="2">服饰</el-menu-item>
-        <el-menu-item index="3">食品</el-menu-item>
-        <el-menu-item index="4">图书影像</el-menu-item>
-        <el-menu-item index="5">运动户外</el-menu-item>
-        <el-menu-item index="6">数码</el-menu-item>
+        <el-menu-item index="2" @click="goSearch">服饰</el-menu-item>
+        <el-menu-item index="3" @click="goSearch">食品</el-menu-item>
+        <el-menu-item index="4" @click="goSearch">图书影像</el-menu-item>
+        <el-menu-item index="5" @click="goSearch">运动户外</el-menu-item>
+        <el-menu-item index="6" @click="goSearch">数码</el-menu-item>
       </el-menu>
     </div>
   </div>
@@ -61,15 +61,11 @@ export default {
       //2.模板字符串
       //this.$router.push(`/search/${this.keyword}?k=${this.keyword.toUpperCase()}`);
       //3.对象
-      this.$router.push(
-        {
-          name: "search",
-          params: { keyword: this.keyword },
-          query: { k: this.keyword.toUpperCase() },
-        },
-        () => {},
-        () => {}
-      );
+      this.$router.push({
+        name: "search",
+        params: { keyword: this.keyword },
+        query: { k: this.keyword.toUpperCase() },
+      });
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
