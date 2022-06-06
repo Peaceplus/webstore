@@ -17,7 +17,7 @@
   <div class="goodContainer">
     <div class="showContainer">
       <div class="image" v-for="pic in pics" :key="pic.id">
-            <img class="img" :src="require('@/assets/' + pic.image)">
+            <img class="img" :src="require('@/assets/' + pic.image)" @click="goProduct">
             <label>{{ pic.info }}</label><br>
             <label class="price">{{ pic.price }}</label>
       </div>
@@ -74,8 +74,10 @@ export default {
   methods:{
     handleChange(val){
       console.log(val);
-    }
-
+    },
+    goProduct(){
+      this.$router.push("/product");
+    },
   }
 };
 </script>
